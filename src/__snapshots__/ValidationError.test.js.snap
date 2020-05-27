@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ValidationError component renders the UI as expected when passed an error message in props 1`] = `
+<div
+  className="validation-error"
+>
+  Failure to fetch
+</div>
+`;
+
+exports[`ValidationError component renders the UI as expected when there is no error 1`] = `<Fragment />`;

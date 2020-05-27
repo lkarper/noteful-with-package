@@ -1,0 +1,42 @@
+.sidebar {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+.folder-link {
+    border: 1px solid black;
+    font-size: 18px;
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+}
+
+.highlighted {
+    background: black;
+    color: white;
+    text-decoration: underline;
+}
+
+.folder-link:hover, .folder-link:focus {
+    background-color: black;
+}
+
+.folder-link:hover , .folder-link:focus {
+    color: white;
+    text-decoration: underline;
+}
+
+.sidebar button {
+    margin-top: 10px;
+}
+
+@media screen and (min-width: 750px) {
+    .sidebar {
+        width: 20%;
+    }
+
+    .folder-link {
+        font-size: 25px;
+    }
+}

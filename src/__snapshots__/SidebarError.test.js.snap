@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SidebarError component renders an error message when an error occurs in the DOM tree beneath it 1`] = `
+<SidebarError>
+  <h2>
+    Sorry, could not load folders at this time.
+  </h2>
+</SidebarError>
+`;
+
+exports[`SidebarError component renders the UI as expected 1`] = `
+<SidebarError>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <SidebarLinks>
+        <nav
+          className="sidebar"
+        >
+          <NavLink
+            activeClassName="highlighted"
+            className="folder-link"
+            to="/add-folder"
+          >
+            <Link
+              aria-current={null}
+              className="folder-link"
+              to={
+                Object {
+                  "hash": "",
+                  "pathname": "/add-folder",
+                  "search": "",
+                  "state": null,
+                }
+              }
+            >
+              <LinkAnchor
+                aria-current={null}
+                className="folder-link"
+                href="/add-folder"
+                navigate={[Function]}
+              >
+                <a
+                  aria-current={null}
+                  className="folder-link"
+                  href="/add-folder"
+                  onClick={[Function]}
+                >
+                  Add folder
+                </a>
+              </LinkAnchor>
+            </Link>
+          </NavLink>
+        </nav>
+      </SidebarLinks>
+    </Router>
+  </BrowserRouter>
+</SidebarError>
+`;

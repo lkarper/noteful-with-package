@@ -1,0 +1,14 @@
+.add-note-button {
+    border: 1px solid black;
+    font-size: 18px;
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+}
+
+
+.add-note-button:hover, .add-note-button:focus {
+    background-color: black;
+    color: white;
+    text-decoration: underline;
+}

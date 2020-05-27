@@ -1,0 +1,478 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddNote component disables submit button when input is blank 1`] = `
+<AddNote
+  location={
+    Object {
+      "state": Object {
+        "folderId": "",
+      },
+    }
+  }
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <label
+      htmlFor="add-note"
+    >
+      Enter name for a new note: 
+    </label>
+    <input
+      className="note-name"
+      id="add-note"
+      name="add-note"
+      onChange={[Function]}
+      required={true}
+      type="text"
+    />
+    <fieldset>
+      <legend>
+        Select a folder to put the new note in: 
+      </legend>
+    </fieldset>
+    <ValidationError
+      message="You must select a folder in which to place your note."
+    >
+      <div
+        className="validation-error"
+      >
+        You must select a folder in which to place your note.
+      </div>
+    </ValidationError>
+    <label
+      htmlFor="content"
+    >
+      Enter note content here:
+    </label>
+    <textarea
+      className="note-content"
+      cols="50"
+      id="content"
+      name="content"
+      onChange={[Function]}
+      placeholder="Type your note here..."
+      required={true}
+      rows="5"
+    />
+    <button
+      disabled={true}
+      type="submit"
+    >
+      Add Note
+    </button>
+  </form>
+</AddNote>
+`;
+
+exports[`AddNote component does not display an error message when folder is clicked 1`] = `
+<AddNote
+  location={
+    Object {
+      "state": Object {
+        "folderId": "",
+      },
+    }
+  }
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <label
+      htmlFor="add-note"
+    >
+      Enter name for a new note: 
+    </label>
+    <input
+      className="note-name"
+      id="add-note"
+      name="add-note"
+      onChange={[Function]}
+      required={true}
+      type="text"
+    />
+    <fieldset>
+      <legend>
+        Select a folder to put the new note in: 
+      </legend>
+    </fieldset>
+    <ValidationError />
+    <label
+      htmlFor="content"
+    >
+      Enter note content here:
+    </label>
+    <textarea
+      className="note-content"
+      cols="50"
+      id="content"
+      name="content"
+      onChange={[Function]}
+      placeholder="Type your note here..."
+      required={true}
+      rows="5"
+    />
+    <button
+      disabled={true}
+      type="submit"
+    >
+      Add Note
+    </button>
+  </form>
+</AddNote>
+`;
+
+exports[`AddNote component enables submit button when valid note name, folder, and content are provided 1`] = `
+<AddNote
+  location={
+    Object {
+      "state": Object {
+        "folderId": "",
+      },
+    }
+  }
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <label
+      htmlFor="add-note"
+    >
+      Enter name for a new note: 
+    </label>
+    <input
+      className="note-name"
+      id="add-note"
+      name="add-note"
+      onChange={[Function]}
+      required={true}
+      type="text"
+    />
+    <ValidationError />
+    <fieldset>
+      <legend>
+        Select a folder to put the new note in: 
+      </legend>
+    </fieldset>
+    <ValidationError />
+    <label
+      htmlFor="content"
+    >
+      Enter note content here:
+    </label>
+    <textarea
+      className="note-content"
+      cols="50"
+      id="content"
+      name="content"
+      onChange={[Function]}
+      placeholder="Type your note here..."
+      required={true}
+      rows="5"
+    />
+    <ValidationError />
+    <button
+      disabled={false}
+      type="submit"
+    >
+      Add Note
+    </button>
+  </form>
+</AddNote>
+`;
+
+exports[`AddNote component renders an error message when no content is added to the note 1`] = `
+<AddNote
+  location={
+    Object {
+      "state": Object {
+        "folderId": "",
+      },
+    }
+  }
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <label
+      htmlFor="add-note"
+    >
+      Enter name for a new note: 
+    </label>
+    <input
+      className="note-name"
+      id="add-note"
+      name="add-note"
+      onChange={[Function]}
+      required={true}
+      type="text"
+    />
+    <fieldset>
+      <legend>
+        Select a folder to put the new note in: 
+      </legend>
+    </fieldset>
+    <ValidationError
+      message="You must select a folder in which to place your note."
+    >
+      <div
+        className="validation-error"
+      >
+        You must select a folder in which to place your note.
+      </div>
+    </ValidationError>
+    <label
+      htmlFor="content"
+    >
+      Enter note content here:
+    </label>
+    <textarea
+      className="note-content"
+      cols="50"
+      id="content"
+      name="content"
+      onChange={[Function]}
+      placeholder="Type your note here..."
+      required={true}
+      rows="5"
+    />
+    <ValidationError
+      message="You must add content to your note and it must contain at least one character."
+    >
+      <div
+        className="validation-error"
+      >
+        You must add content to your note and it must contain at least one character.
+      </div>
+    </ValidationError>
+    <button
+      disabled={true}
+      type="submit"
+    >
+      Add Note
+    </button>
+  </form>
+</AddNote>
+`;
+
+exports[`AddNote component renders an error message when no folder is clicked 1`] = `
+<AddNote
+  location={
+    Object {
+      "state": Object {
+        "folderId": "",
+      },
+    }
+  }
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <label
+      htmlFor="add-note"
+    >
+      Enter name for a new note: 
+    </label>
+    <input
+      className="note-name"
+      id="add-note"
+      name="add-note"
+      onChange={[Function]}
+      required={true}
+      type="text"
+    />
+    <ValidationError
+      message="The note must be named and the name must contain at least one character."
+    >
+      <div
+        className="validation-error"
+      >
+        The note must be named and the name must contain at least one character.
+      </div>
+    </ValidationError>
+    <fieldset>
+      <legend>
+        Select a folder to put the new note in: 
+      </legend>
+    </fieldset>
+    <ValidationError
+      message="You must select a folder in which to place your note."
+    >
+      <div
+        className="validation-error"
+      >
+        You must select a folder in which to place your note.
+      </div>
+    </ValidationError>
+    <label
+      htmlFor="content"
+    >
+      Enter note content here:
+    </label>
+    <textarea
+      className="note-content"
+      cols="50"
+      id="content"
+      name="content"
+      onChange={[Function]}
+      placeholder="Type your note here..."
+      required={true}
+      rows="5"
+    />
+    <ValidationError
+      message="You must add content to your note and it must contain at least one character."
+    >
+      <div
+        className="validation-error"
+      >
+        You must add content to your note and it must contain at least one character.
+      </div>
+    </ValidationError>
+    <button
+      disabled={true}
+      type="submit"
+    >
+      Add Note
+    </button>
+  </form>
+</AddNote>
+`;
+
+exports[`AddNote component renders an error message when the note name input contains no characters 1`] = `
+<AddNote
+  location={
+    Object {
+      "state": Object {
+        "folderId": "",
+      },
+    }
+  }
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <label
+      htmlFor="add-note"
+    >
+      Enter name for a new note: 
+    </label>
+    <input
+      className="note-name"
+      id="add-note"
+      name="add-note"
+      onChange={[Function]}
+      required={true}
+      type="text"
+    />
+    <ValidationError
+      message="The note must be named and the name must contain at least one character."
+    >
+      <div
+        className="validation-error"
+      >
+        The note must be named and the name must contain at least one character.
+      </div>
+    </ValidationError>
+    <fieldset>
+      <legend>
+        Select a folder to put the new note in: 
+      </legend>
+    </fieldset>
+    <ValidationError
+      message="You must select a folder in which to place your note."
+    >
+      <div
+        className="validation-error"
+      >
+        You must select a folder in which to place your note.
+      </div>
+    </ValidationError>
+    <label
+      htmlFor="content"
+    >
+      Enter note content here:
+    </label>
+    <textarea
+      className="note-content"
+      cols="50"
+      id="content"
+      name="content"
+      onChange={[Function]}
+      placeholder="Type your note here..."
+      required={true}
+      rows="5"
+    />
+    <button
+      disabled={true}
+      type="submit"
+    >
+      Add Note
+    </button>
+  </form>
+</AddNote>
+`;
+
+exports[`AddNote component renders the UI as expected 1`] = `
+<AddNote
+  location={
+    Object {
+      "state": Object {
+        "folderId": "",
+      },
+    }
+  }
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <label
+      htmlFor="add-note"
+    >
+      Enter name for a new note: 
+    </label>
+    <input
+      className="note-name"
+      id="add-note"
+      name="add-note"
+      onChange={[Function]}
+      required={true}
+      type="text"
+    />
+    <fieldset>
+      <legend>
+        Select a folder to put the new note in: 
+      </legend>
+    </fieldset>
+    <ValidationError
+      message="You must select a folder in which to place your note."
+    >
+      <div
+        className="validation-error"
+      >
+        You must select a folder in which to place your note.
+      </div>
+    </ValidationError>
+    <label
+      htmlFor="content"
+    >
+      Enter note content here:
+    </label>
+    <textarea
+      className="note-content"
+      cols="50"
+      id="content"
+      name="content"
+      onChange={[Function]}
+      placeholder="Type your note here..."
+      required={true}
+      rows="5"
+    />
+    <button
+      disabled={true}
+      type="submit"
+    >
+      Add Note
+    </button>
+  </form>
+</AddNote>
+`;

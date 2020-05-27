@@ -1,0 +1,143 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ShortNote component renders an error message when the delete request fails 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <ShortNote
+      note={
+        Object {
+          "content": "Lorem ipsum...",
+          "folderId": "PlaceholderFolderId",
+          "id": "PlaceholderId",
+          "modified": "2020-05-26T15:42:51.026Z",
+          "name": "Placeholder name",
+        }
+      }
+    >
+      <li>
+        <Link
+          to="/note/PlaceholderId"
+        >
+          <LinkAnchor
+            href="/note/PlaceholderId"
+            navigate={[Function]}
+          >
+            <a
+              href="/note/PlaceholderId"
+              onClick={[Function]}
+            >
+              Placeholder name
+            </a>
+          </LinkAnchor>
+        </Link>
+        <p>
+          Last modified on: Tue May 26 2020 11:42:51 GMT-0400 (Eastern Daylight Time)
+        </p>
+        <button
+          onClick={[Function]}
+          type="button"
+        >
+          Delete Note
+        </button>
+        <div>
+          <h2>
+            Could not delete note: 
+            server error
+            .
+          </h2>
+          <p>
+            Check your connection and try again.
+          </p>
+        </div>
+      </li>
+    </ShortNote>
+  </Router>
+</BrowserRouter>
+`;
+
+exports[`ShortNote component renders the UI as expected 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <ShortNote
+      note={
+        Object {
+          "content": "Lorem ipsum...",
+          "folderId": "PlaceholderFolderId",
+          "id": "PlaceholderId",
+          "modified": "2020-05-26T15:36:38.406Z",
+          "name": "Placeholder name",
+        }
+      }
+    >
+      <li>
+        <Link
+          to="/note/PlaceholderId"
+        >
+          <LinkAnchor
+            href="/note/PlaceholderId"
+            navigate={[Function]}
+          >
+            <a
+              href="/note/PlaceholderId"
+              onClick={[Function]}
+            >
+              Placeholder name
+            </a>
+          </LinkAnchor>
+        </Link>
+        <p>
+          Last modified on: Tue May 26 2020 11:36:38 GMT-0400 (Eastern Daylight Time)
+        </p>
+        <button
+          onClick={[Function]}
+          type="button"
+        >
+          Delete Note
+        </button>
+      </li>
+    </ShortNote>
+  </Router>
+</BrowserRouter>
+`;

@@ -1,0 +1,177 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotesSideBar Component renders an error when error is passed in context 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <NotesSidebar
+      match={
+        Object {
+          "params": Object {
+            "noteId": "cbc787a0-ffaf-11e8-8eb2-f2801f1b9fd1",
+          },
+        }
+      }
+    >
+      <nav
+        className="sidebar"
+      >
+        <div
+          className="folder-load-error"
+        >
+          <h2>
+            Sorry, could not load folders from the server: 
+            Could not fetch
+            .
+          </h2>
+          <p>
+            Check your network connection and reload the page.
+          </p>
+        </div>
+        <NavLink
+          activeClassName="highlighted"
+          className="folder-link"
+          to="/folder/b0715efe-ffaf-11e8-8eb2-f2801f1b9fd1"
+        >
+          <Link
+            aria-current={null}
+            className="folder-link"
+            to={
+              Object {
+                "hash": "",
+                "pathname": "/folder/b0715efe-ffaf-11e8-8eb2-f2801f1b9fd1",
+                "search": "",
+                "state": null,
+              }
+            }
+          >
+            <LinkAnchor
+              aria-current={null}
+              className="folder-link"
+              href="/folder/b0715efe-ffaf-11e8-8eb2-f2801f1b9fd1"
+              navigate={[Function]}
+            >
+              <a
+                aria-current={null}
+                className="folder-link"
+                href="/folder/b0715efe-ffaf-11e8-8eb2-f2801f1b9fd1"
+                onClick={[Function]}
+              >
+                Important
+              </a>
+            </LinkAnchor>
+          </Link>
+        </NavLink>
+        <button
+          onClick={[Function]}
+          type="buton"
+        >
+          Back to folder
+        </button>
+      </nav>
+    </NotesSidebar>
+  </Router>
+</BrowserRouter>
+`;
+
+exports[`NotesSideBar Component renders the UI as expected 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <NotesSidebar
+      match={
+        Object {
+          "params": Object {
+            "noteId": "cbc787a0-ffaf-11e8-8eb2-f2801f1b9fd1",
+          },
+        }
+      }
+    >
+      <nav
+        className="sidebar"
+      >
+        <NavLink
+          activeClassName="highlighted"
+          className="folder-link"
+          to="/folder/b0715efe-ffaf-11e8-8eb2-f2801f1b9fd1"
+        >
+          <Link
+            aria-current={null}
+            className="folder-link"
+            to={
+              Object {
+                "hash": "",
+                "pathname": "/folder/b0715efe-ffaf-11e8-8eb2-f2801f1b9fd1",
+                "search": "",
+                "state": null,
+              }
+            }
+          >
+            <LinkAnchor
+              aria-current={null}
+              className="folder-link"
+              href="/folder/b0715efe-ffaf-11e8-8eb2-f2801f1b9fd1"
+              navigate={[Function]}
+            >
+              <a
+                aria-current={null}
+                className="folder-link"
+                href="/folder/b0715efe-ffaf-11e8-8eb2-f2801f1b9fd1"
+                onClick={[Function]}
+              >
+                Important
+              </a>
+            </LinkAnchor>
+          </Link>
+        </NavLink>
+        <button
+          onClick={[Function]}
+          type="buton"
+        >
+          Back to folder
+        </button>
+      </nav>
+    </NotesSidebar>
+  </Router>
+</BrowserRouter>
+`;

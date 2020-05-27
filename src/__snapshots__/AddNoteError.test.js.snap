@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddNoteError component renders an error message when an error occurs in the DOM tree beneath it 1`] = `
+<AddNoteError>
+  <h2>
+    Could not add note.  Check your connection and try again.
+  </h2>
+</AddNoteError>
+`;
+
+exports[`AddNoteError component renders the UI as expected 1`] = `
+<AddNoteError>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <AddNote
+        location={
+          Object {
+            "state": Object {
+              "folderId": "",
+            },
+          }
+        }
+      >
+        <form
+          onSubmit={[Function]}
+        >
+          <label
+            htmlFor="add-note"
+          >
+            Enter name for a new note: 
+          </label>
+          <input
+            className="note-name"
+            id="add-note"
+            name="add-note"
+            onChange={[Function]}
+            required={true}
+            type="text"
+          />
+          <fieldset>
+            <legend>
+              Select a folder to put the new note in: 
+            </legend>
+          </fieldset>
+          <ValidationError
+            message="You must select a folder in which to place your note."
+          >
+            <div
+              className="validation-error"
+            >
+              You must select a folder in which to place your note.
+            </div>
+          </ValidationError>
+          <label
+            htmlFor="content"
+          >
+            Enter note content here:
+          </label>
+          <textarea
+            className="note-content"
+            cols="50"
+            id="content"
+            name="content"
+            onChange={[Function]}
+            placeholder="Type your note here..."
+            required={true}
+            rows="5"
+          />
+          <button
+            disabled={true}
+            type="submit"
+          >
+            Add Note
+          </button>
+        </form>
+      </AddNote>
+    </Router>
+  </BrowserRouter>
+</AddNoteError>
+`;

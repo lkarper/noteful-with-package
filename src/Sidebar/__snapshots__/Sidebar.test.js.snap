@@ -1,0 +1,232 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sidebar component renders the UI as expected 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Sidebar>
+      <SidebarError>
+        <Route
+          component={[Function]}
+          exact={true}
+          path={
+            Array [
+              "/",
+              "/folder/:folderId",
+              "/add-folder",
+              "/add-note",
+            ]
+          }
+        >
+          <SidebarLinks
+            history={
+              Object {
+                "action": "POP",
+                "block": [Function],
+                "createHref": [Function],
+                "go": [Function],
+                "goBack": [Function],
+                "goForward": [Function],
+                "length": 1,
+                "listen": [Function],
+                "location": Object {
+                  "hash": "",
+                  "pathname": "/",
+                  "search": "",
+                  "state": undefined,
+                },
+                "push": [Function],
+                "replace": [Function],
+              }
+            }
+            location={
+              Object {
+                "hash": "",
+                "pathname": "/",
+                "search": "",
+                "state": undefined,
+              }
+            }
+            match={
+              Object {
+                "isExact": true,
+                "params": Object {},
+                "path": "/",
+                "url": "/",
+              }
+            }
+          >
+            <nav
+              className="sidebar"
+            >
+              <NavLink
+                activeClassName="highlighted"
+                className="folder-link"
+                key="b0715efe-ffaf-11e8-8eb2-f2801f1b9fd1"
+                to="/folder/b0715efe-ffaf-11e8-8eb2-f2801f1b9fd1"
+              >
+                <Link
+                  aria-current={null}
+                  className="folder-link"
+                  to={
+                    Object {
+                      "hash": "",
+                      "pathname": "/folder/b0715efe-ffaf-11e8-8eb2-f2801f1b9fd1",
+                      "search": "",
+                      "state": null,
+                    }
+                  }
+                >
+                  <LinkAnchor
+                    aria-current={null}
+                    className="folder-link"
+                    href="/folder/b0715efe-ffaf-11e8-8eb2-f2801f1b9fd1"
+                    navigate={[Function]}
+                  >
+                    <a
+                      aria-current={null}
+                      className="folder-link"
+                      href="/folder/b0715efe-ffaf-11e8-8eb2-f2801f1b9fd1"
+                      onClick={[Function]}
+                    >
+                      Important
+                    </a>
+                  </LinkAnchor>
+                </Link>
+              </NavLink>
+              <NavLink
+                activeClassName="highlighted"
+                className="folder-link"
+                key="b07161a6-ffaf-11e8-8eb2-f2801f1b9fd1"
+                to="/folder/b07161a6-ffaf-11e8-8eb2-f2801f1b9fd1"
+              >
+                <Link
+                  aria-current={null}
+                  className="folder-link"
+                  to={
+                    Object {
+                      "hash": "",
+                      "pathname": "/folder/b07161a6-ffaf-11e8-8eb2-f2801f1b9fd1",
+                      "search": "",
+                      "state": null,
+                    }
+                  }
+                >
+                  <LinkAnchor
+                    aria-current={null}
+                    className="folder-link"
+                    href="/folder/b07161a6-ffaf-11e8-8eb2-f2801f1b9fd1"
+                    navigate={[Function]}
+                  >
+                    <a
+                      aria-current={null}
+                      className="folder-link"
+                      href="/folder/b07161a6-ffaf-11e8-8eb2-f2801f1b9fd1"
+                      onClick={[Function]}
+                    >
+                      Super
+                    </a>
+                  </LinkAnchor>
+                </Link>
+              </NavLink>
+              <NavLink
+                activeClassName="highlighted"
+                className="folder-link"
+                key="b07162f0-ffaf-11e8-8eb2-f2801f1b9fd1"
+                to="/folder/b07162f0-ffaf-11e8-8eb2-f2801f1b9fd1"
+              >
+                <Link
+                  aria-current={null}
+                  className="folder-link"
+                  to={
+                    Object {
+                      "hash": "",
+                      "pathname": "/folder/b07162f0-ffaf-11e8-8eb2-f2801f1b9fd1",
+                      "search": "",
+                      "state": null,
+                    }
+                  }
+                >
+                  <LinkAnchor
+                    aria-current={null}
+                    className="folder-link"
+                    href="/folder/b07162f0-ffaf-11e8-8eb2-f2801f1b9fd1"
+                    navigate={[Function]}
+                  >
+                    <a
+                      aria-current={null}
+                      className="folder-link"
+                      href="/folder/b07162f0-ffaf-11e8-8eb2-f2801f1b9fd1"
+                      onClick={[Function]}
+                    >
+                      Spangley
+                    </a>
+                  </LinkAnchor>
+                </Link>
+              </NavLink>
+              <NavLink
+                activeClassName="highlighted"
+                className="folder-link"
+                to="/add-folder"
+              >
+                <Link
+                  aria-current={null}
+                  className="folder-link"
+                  to={
+                    Object {
+                      "hash": "",
+                      "pathname": "/add-folder",
+                      "search": "",
+                      "state": null,
+                    }
+                  }
+                >
+                  <LinkAnchor
+                    aria-current={null}
+                    className="folder-link"
+                    href="/add-folder"
+                    navigate={[Function]}
+                  >
+                    <a
+                      aria-current={null}
+                      className="folder-link"
+                      href="/add-folder"
+                      onClick={[Function]}
+                    >
+                      Add folder
+                    </a>
+                  </LinkAnchor>
+                </Link>
+              </NavLink>
+            </nav>
+          </SidebarLinks>
+        </Route>
+        <Route
+          component={[Function]}
+          path="/note/:noteId"
+        />
+      </SidebarError>
+    </Sidebar>
+  </Router>
+</BrowserRouter>
+`;

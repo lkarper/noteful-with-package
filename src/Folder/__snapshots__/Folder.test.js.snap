@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Folder component renders the UI as expected 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Folder
+      match={
+        Object {
+          "params": Object {
+            "folderId": "",
+          },
+        }
+      }
+    >
+      <section
+        className="notes"
+      >
+        <ul />
+        <Link
+          to={
+            Object {
+              "pathname": "/add-note",
+              "state": Object {
+                "folderId": "",
+              },
+            }
+          }
+        >
+          <LinkAnchor
+            href="/add-note"
+            navigate={[Function]}
+          >
+            <a
+              href="/add-note"
+              onClick={[Function]}
+            >
+              Add note
+            </a>
+          </LinkAnchor>
+        </Link>
+      </section>
+    </Folder>
+  </Router>
+</BrowserRouter>
+`;

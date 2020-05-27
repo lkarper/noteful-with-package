@@ -1,0 +1,256 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component renders the UI as expected 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <App>
+      <div
+        className="App"
+      >
+        <Header>
+          <header>
+            <h1>
+              <Link
+                to="/"
+              >
+                <LinkAnchor
+                  href="/"
+                  navigate={[Function]}
+                >
+                  <a
+                    href="/"
+                    onClick={[Function]}
+                  >
+                    Noteful
+                  </a>
+                </LinkAnchor>
+              </Link>
+            </h1>
+          </header>
+        </Header>
+        <div
+          className="content"
+        >
+          <Sidebar>
+            <SidebarError>
+              <Route
+                component={[Function]}
+                exact={true}
+                path={
+                  Array [
+                    "/",
+                    "/folder/:folderId",
+                    "/add-folder",
+                    "/add-note",
+                  ]
+                }
+              >
+                <SidebarLinks
+                  history={
+                    Object {
+                      "action": "POP",
+                      "block": [Function],
+                      "createHref": [Function],
+                      "go": [Function],
+                      "goBack": [Function],
+                      "goForward": [Function],
+                      "length": 1,
+                      "listen": [Function],
+                      "location": Object {
+                        "hash": "",
+                        "pathname": "/",
+                        "search": "",
+                        "state": undefined,
+                      },
+                      "push": [Function],
+                      "replace": [Function],
+                    }
+                  }
+                  location={
+                    Object {
+                      "hash": "",
+                      "pathname": "/",
+                      "search": "",
+                      "state": undefined,
+                    }
+                  }
+                  match={
+                    Object {
+                      "isExact": true,
+                      "params": Object {},
+                      "path": "/",
+                      "url": "/",
+                    }
+                  }
+                >
+                  <nav
+                    className="sidebar"
+                  >
+                    <NavLink
+                      activeClassName="highlighted"
+                      className="folder-link"
+                      to="/add-folder"
+                    >
+                      <Link
+                        aria-current={null}
+                        className="folder-link"
+                        to={
+                          Object {
+                            "hash": "",
+                            "pathname": "/add-folder",
+                            "search": "",
+                            "state": null,
+                          }
+                        }
+                      >
+                        <LinkAnchor
+                          aria-current={null}
+                          className="folder-link"
+                          href="/add-folder"
+                          navigate={[Function]}
+                        >
+                          <a
+                            aria-current={null}
+                            className="folder-link"
+                            href="/add-folder"
+                            onClick={[Function]}
+                          >
+                            Add folder
+                          </a>
+                        </LinkAnchor>
+                      </Link>
+                    </NavLink>
+                  </nav>
+                </SidebarLinks>
+              </Route>
+              <Route
+                component={[Function]}
+                path="/note/:noteId"
+              />
+            </SidebarError>
+          </Sidebar>
+          <Main>
+            <main>
+              <NotesError>
+                <Route
+                  component={[Function]}
+                  exact={true}
+                  path="/"
+                >
+                  <NotesList
+                    history={
+                      Object {
+                        "action": "POP",
+                        "block": [Function],
+                        "createHref": [Function],
+                        "go": [Function],
+                        "goBack": [Function],
+                        "goForward": [Function],
+                        "length": 1,
+                        "listen": [Function],
+                        "location": Object {
+                          "hash": "",
+                          "pathname": "/",
+                          "search": "",
+                          "state": undefined,
+                        },
+                        "push": [Function],
+                        "replace": [Function],
+                      }
+                    }
+                    location={
+                      Object {
+                        "hash": "",
+                        "pathname": "/",
+                        "search": "",
+                        "state": undefined,
+                      }
+                    }
+                    match={
+                      Object {
+                        "isExact": true,
+                        "params": Object {},
+                        "path": "/",
+                        "url": "/",
+                      }
+                    }
+                  >
+                    <section
+                      className="notes"
+                    >
+                      <ul />
+                      <Link
+                        to={
+                          Object {
+                            "pathname": "/add-note",
+                            "state": Object {
+                              "folderId": null,
+                            },
+                          }
+                        }
+                      >
+                        <LinkAnchor
+                          href="/add-note"
+                          navigate={[Function]}
+                        >
+                          <a
+                            href="/add-note"
+                            onClick={[Function]}
+                          >
+                            Add note
+                          </a>
+                        </LinkAnchor>
+                      </Link>
+                    </section>
+                  </NotesList>
+                </Route>
+                <Route
+                  component={[Function]}
+                  path="/note/:noteId"
+                />
+                <Route
+                  component={[Function]}
+                  path="/folder/:folderId"
+                />
+              </NotesError>
+              <AddFolderError>
+                <Route
+                  component={[Function]}
+                  path="/add-folder"
+                />
+              </AddFolderError>
+              <AddNoteError>
+                <Route
+                  component={[Function]}
+                  path="/add-note"
+                />
+              </AddNoteError>
+            </main>
+          </Main>
+        </div>
+      </div>
+    </App>
+  </Router>
+</BrowserRouter>
+`;
