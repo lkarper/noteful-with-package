@@ -12,7 +12,7 @@ class AddNoteError extends Component {
 
     render() {
         if (this.state.hasError) {
-            return <h2>Could not add note.  Check your connection and try again.</h2>
+            return <h2>Could not add note.  Check your connection, reload the page, and try again.</h2>
         }
         
         return this.props.children;
