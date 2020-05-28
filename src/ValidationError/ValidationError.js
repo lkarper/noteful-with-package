@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const ValidationError = (props) => {
     if (props.message) {
-        return <div className="validation-error">{props.message}</div>;
+        return <div id="aria-description" className="validation-error">{props.message}</div>;
     }
     return <></>;
 }

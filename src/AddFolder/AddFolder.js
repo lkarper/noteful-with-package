@@ -70,6 +70,9 @@ class AddFolder extends Component {
                 <p>A new folder could not be created at this time.  Please try again later.</p>
             </div>
         );
+        const requiredHTML = (
+            <div id="aria-description">You must enter a name for your folder.</div>
+        );
         const nameError = this.validateFolderName();
 
         return (
@@ -80,10 +83,13 @@ class AddFolder extends Component {
                         type="text" 
                         id="folder-name" 
                         name="folder-name" 
-                        onChange={e => this.updateFolderName(e.currentTarget.value)} 
+                        onChange={e => this.updateFolderName(e.currentTarget.value)}
+                        aria-required="true"
+                        aria-describedby="aria-description"
+                        aria-invalid={nameError ? true : false} 
                         required 
                     />
-                    {this.state.folder.touched && <ValidationError message={nameError} />}
+                    {(this.state.folder.touched && <ValidationError message={nameError} />) || requiredHTML}
                     <button 
                         type="submit"
                         disabled={nameError ? true : false}

@@ -46,6 +46,7 @@ class App extends React.Component {
       .then(folders => {
         this.setState({
           folders,
+          folderError: null,
         });
       })
       .catch(error => {
@@ -63,6 +64,7 @@ class App extends React.Component {
       .then(notes => {
         this.setState({
           notes,
+          noteError: null,
         });
       })
       .catch(error => {
