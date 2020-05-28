@@ -188,7 +188,7 @@ class AddNote extends Component {
                         aria-describedby="content-aria-required"
                         required>
                     </textarea>
-                    <div id="content-aria-rquired">
+                    <div id="content-aria-required">
                         You must add content to your note.
                     </div>
                     {this.state.content.touched && <ValidationError message={contentError} />}
