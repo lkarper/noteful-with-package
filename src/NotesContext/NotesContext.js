@@ -8,6 +8,8 @@ const NotesContext = React.createContext({
     deleteNote: () => {},
     addFolder: () => {},
     addNote: () => {},
+    deleteFolder: () => {},
+    updateNotes: () => {},
 });
 
 export default NotesContext;

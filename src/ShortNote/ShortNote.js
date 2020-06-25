@@ -16,24 +16,25 @@ class ShortNote extends Component {
         note: {
             name: "Placeholder name",
             id: "PlaceholderId", 
-            modified: (new Date()).toJSON(), 
-            folderId: "PlaceholderFolderId", 
+            date_modified: (new Date()).toJSON(), 
+            folder: 0, 
             content: "Lorem ipsum...",
         },
     }
 
     deleteNoteRequest = (noteId, cb) => {
-        fetch(`http://localhost:9090/notes/${noteId}`, {
+        fetch(`http://localhost:8000/api/notes/${noteId}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json'
             },
         })
         .then(response => {
-            if (response.ok) {
-                return response.json();
+            if (!response.ok) {
+                return response.json().then(error => {
+                    throw error;
+                })
             }
-            throw new Error(response.message);
         })
         .then(data => {
             cb(noteId);
@@ -54,7 +55,7 @@ class ShortNote extends Component {
         );
 
         const { note } = this.props;
-        const date = new Date(note.modified);
+        const date = new Date(note.date_modified);
 
         return (
             <li>
@@ -75,9 +76,9 @@ class ShortNote extends Component {
 ShortNote.propTypes = {
     note: PropTypes.shape({
         name: PropTypes.string,
-        id: PropTypes.string,
-        modified: PropTypes.string,
-        folderId: PropTypes.string,
+        id: PropTypes.number,
+        date_modified: PropTypes.string,
+        folder: PropTypes.number,
         content: PropTypes.string,
     }).isRequired,
 }

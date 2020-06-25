@@ -5,6 +5,7 @@ import Folder from '../Folder/Folder';
 import Note from '../Note/Note';
 import AddFolder from '../AddFolder/AddFolder';
 import AddNote from '../AddNote/AddNote';
+import UpdateNote from '../UpdateNote/UpdateNote';
 import NotesError from '../NotesError/NotesError';
 import AddFolderError from '../AddFolderError/AddFolderError';
 import AddNoteError from '../AddNoteError/AddNoteError';
@@ -37,6 +38,10 @@ const Main = () => {
                 <Route
                     path="/add-note"
                     component={AddNote}
+                />
+                <Route 
+                    path="/update-note/:noteId"
+                    component={UpdateNote}
                 />
             </AddNoteError>
         </main>

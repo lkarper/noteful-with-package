@@ -15,8 +15,8 @@ const NotesSidebar = (props) => {
                     </div>
                 );
                 const folderIdToMatch = value.notes
-                    .find(note => note.id === props.match.params.noteId)
-                    .folderId;
+                    .find(note => note.id === parseInt(props.match.params.noteId))
+                    .folder;
 
                 const folder = folderIdToMatch ? value.folders.find(f => f.id === folderIdToMatch) : null;
 

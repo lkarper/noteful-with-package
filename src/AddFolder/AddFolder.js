@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import cuid from 'cuid';
 import NotesContext from '../NotesContext/NotesContext';
 import ValidationError from '../ValidationError/ValidationError';
 
@@ -20,10 +19,9 @@ class AddFolder extends Component {
         event.preventDefault();
         const newFolder = {
             name: this.state.folder.name,
-            id: cuid(),
         };
 
-        fetch('http://localhost:9090/folders', {
+        fetch('http://localhost:8000/api/folders', {
             method: 'POST',
             body: JSON.stringify(newFolder),
             headers: {

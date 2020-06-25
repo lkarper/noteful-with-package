@@ -7,7 +7,7 @@ import './App.css';
 
 class App extends React.Component {
 
-  static contextType = NotesContext;
+  // static contextType = NotesContext;
 
   state = {
     folders: [],
@@ -18,6 +18,22 @@ class App extends React.Component {
 
   deleteNote = (noteId) => {
     const newNotes = this.state.notes.filter(n => n.id !== noteId);
+    this.setState({
+      notes: newNotes,
+    });
+  }
+
+  deleteFolder = (folderId) => {
+    const newFolders = this.state.folders.filter(f => f.id !== folderId);
+    const newNotes = this.state.notes.filter(n => n.folder !== folderId);
+    this.setState({
+      folders: newFolders,
+      notes: newNotes,
+    });
+  }
+
+  updateNotes = (newNote) => {
+    const newNotes = [...this.state.notes.filter(n => n.id !== newNote.id), newNote];
     this.setState({
       notes: newNotes,
     });
@@ -36,7 +52,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:9090/folders')
+    fetch('http://localhost:8000/api/folders')
       .then(response => {
         if (response.ok) {
           return response.json();
@@ -53,7 +69,7 @@ class App extends React.Component {
         this.setState({ folderError: error.message });
       });
       
-    fetch('http://localhost:9090/notes')
+    fetch('http://localhost:8000/api/notes')
       .then(response => {
         if (response.ok) {
           return response.json();
@@ -81,6 +97,8 @@ class App extends React.Component {
       deleteNote: this.deleteNote,
       addFolder: this.addFolder,
       addNote: this.addNote,
+      deleteFolder: this.deleteFolder,
+      updateNotes: this.updateNotes,
     };
 
     return (

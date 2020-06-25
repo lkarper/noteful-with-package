@@ -6,11 +6,36 @@ import NotesContext from '../NotesContext/NotesContext';
 import './Folder.css';
 
 const Folder = (props) => {
+
+    const deleteFolder = (id, cb) => {
+        fetch(`http://localhost:8000/api/folders/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'content-type': 'application/json'
+            },
+        })
+        .then(res => {
+            if (!res.ok) {
+              // get the error message from the response,
+              return res.json().then(error => {
+                // then throw it
+                throw error
+              })
+            }
+          })
+        .then(data => {
+            props.history.push('/');
+            cb(id);
+        })
+        .catch(error => {
+            console.log(error);
+        });
+    }
     return (
         <NotesContext.Consumer>
             {value => {
                 const notes = value.notes
-                    .filter(note => note.folderId === props.match.params.folderId)
+                    .filter(note => note.folder === parseInt(props.match.params.folderId))
                     .map(note =>
                         <ShortNote key={note.id} note={note} />
                     );
@@ -31,6 +56,7 @@ const Folder = (props) => {
                         >
                             Add note
                         </Link>
+                        <button onClick={() => deleteFolder(parseInt(props.match.params.folderId), value.deleteFolder)}>Delete Folder</button>
                     </section>
                 );
             }}

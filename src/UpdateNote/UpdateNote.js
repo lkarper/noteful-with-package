@@ -1,33 +1,23 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import NotesContext from '../NotesContext/NotesContext';
 import ValidationError from '../ValidationError/ValidationError';
-import './AddNote.css';
 
-class AddNote extends Component {
+class UpdateNote extends Component {
 
     static contextType = NotesContext;
 
-    static defaultProps = {
-        location: {
-            state: {
-                folderId: '',
-            },
-        },
-    };
-
     state = {
         name: {
-            value: '',
-            touched: false,
+            value: this.props.location.state.name,
+            touched: true,
         },
         folderId: {
-            value: parseInt(this.props.location.state.folderId),
-            touched: (!!this.props.location.state.folderId),
+            value: parseInt(this.props.location.state.folder),
+            touched: true,
         },
         content: {
-            value: '',
-            touched: false,
+            value: this.props.location.state.content,
+            touched: true,
         },
         error: null,
     }
@@ -59,36 +49,37 @@ class AddNote extends Component {
         });
     }
 
-    handleAddNote = (event, cb) => {
+    handleUpdate = (event) => {
         event.preventDefault();
-        const newNote = {
+
+        const note = {
             name: this.state.name.value,
-            date_modified: (new Date()).toJSON(),
             folder: parseInt(this.state.folderId.value),
             content: this.state.content.value,
-        };
+            date_modified: (new Date()).toJSON(),
+        }
 
-        fetch('http://localhost:8000/api/notes', {
-            method: 'POST',
-            body: JSON.stringify(newNote),
+        fetch(`http://localhost:8000/api/notes/${this.props.match.params.noteId}`, {
+            method: 'PATCH',
+            body: JSON.stringify(note),
             headers: {
                 'content-type': 'application/json'
             }
         })
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
+            .then(res => {
+                if (!res.ok) {
+                    return res.json().then(error => {
+                        throw error;
+                    })
                 }
-                throw new Error(response.message);
             })
             .then(data => {
-                cb(data);
-                this.props.history.push(`/note/${data.id}`);
+                this.context.updateNotes({...note, id: parseInt(this.props.match.params.noteId)});
+                this.props.history.push('/');
             })
             .catch(error => {
-                console.log(error);
-                this.setState({ error: error.message });
-            });
+                console.log('error', error);
+            })
     }
 
     validateNoteName = () => {
@@ -143,14 +134,15 @@ class AddNote extends Component {
             <div className="add-note-container">
                 <form 
                     className="add-note-form"
-                    onSubmit={e => this.handleAddNote(e, this.context.addNote)}
+                    onSubmit={e => this.handleUpdate(e)}
                     >
                     <label htmlFor="add-note">Enter name for a new note: </label>
                     <input 
                         type="text" 
                         id="add-note" 
                         name="add-note" 
-                        className="note-name" 
+                        className="note-name"
+                        value={this.state.name.value} 
                         onChange={e => this.updateName(e.currentTarget.value)} 
                         required 
                     />
@@ -169,6 +161,7 @@ class AddNote extends Component {
                         className="note-content"
                         onChange={e => this.updateContent(e.currentTarget.value)} 
                         placeholder="Type your note here..." 
+                        value={this.state.content.value}
                         required>
                     </textarea>
                     {this.state.content.touched && <ValidationError message={contentError} />}
@@ -185,9 +178,4 @@ class AddNote extends Component {
     }
 }
 
-AddNote.propTypes = {
-    location: PropTypes.object.isRequired,
-    history: PropTypes.object.isRequired,
-}
-
-export default AddNote;
+export default UpdateNote;

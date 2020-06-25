@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import NotesContext from '../NotesContext/NotesContext';
 
@@ -19,7 +20,7 @@ class Note extends Component {
     }
 
     deleteNoteRequest = (noteId, cb) => {
-        fetch(`http://localhost:9090/notes/${noteId}`, {
+        fetch(`http://localhost:8000/api/notes/${noteId}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json'
@@ -50,17 +51,23 @@ class Note extends Component {
             </div>
         );
 
-        const note = this.context.notes.find(n => n.id === this.props.match.params.noteId);
+        const note = this.context.notes.find(n => n.id === parseInt(this.props.match.params.noteId));
 
         if (note) {
             return (
                 <section className="notes">
                     <h2>{note.name}</h2>
-                    <p>{`Last modified on: ${(new Date(note.modified)).toString()}`}</p>
+                    <p>{`Last modified on: ${Date(note.date_modified).toString()}`}</p>
                     <button 
                         type="button"
                         onClick={() => this.deleteNoteRequest(note.id, this.context.deleteNote)}    
                     >Delete Note</button>
+                    <Link
+                        to={{
+                            pathname: `/update-note/${this.props.match.params.noteId}`,
+                            state: {...note},
+                        }}
+                    >Edit Note</Link>
                     {error ? errorHTML : ''}
                     <p>{note.content}</p>
                 </section>
