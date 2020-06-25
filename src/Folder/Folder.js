@@ -56,6 +56,17 @@ const Folder = (props) => {
                         >
                             Add note
                         </Link>
+                        <Link 
+                            className="add-note-button"
+                            to={{
+                                pathname: `/update-folder/${props.match.params.folderId}`,
+                                state: {
+                                    name: value.folders.find(f => f.id === parseInt(props.match.params.folderId)).name || null,
+                                },
+                            }}
+                        >
+                            Change Folder Name
+                        </Link>
                         <button onClick={() => deleteFolder(parseInt(props.match.params.folderId), value.deleteFolder)}>Delete Folder</button>
                     </section>
                 );

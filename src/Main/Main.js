@@ -10,6 +10,7 @@ import NotesError from '../NotesError/NotesError';
 import AddFolderError from '../AddFolderError/AddFolderError';
 import AddNoteError from '../AddNoteError/AddNoteError';
 import './Main.css';
+import UpdateFolder from '../UpdateFolder/UpdateFolder';
 
 const Main = () => {
     return (
@@ -32,6 +33,10 @@ const Main = () => {
                 <Route
                     path="/add-folder"
                     component={AddFolder}
+                />
+                <Route 
+                    path="/update-folder/:folderId"
+                    component={UpdateFolder}
                 />
             </AddFolderError>
             <AddNoteError>

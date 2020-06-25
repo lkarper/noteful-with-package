@@ -169,7 +169,7 @@ class UpdateNote extends Component {
                         type="submit"
                         disabled={nameError || folderError || contentError ? true : false}
                         >
-                            Add Note
+                            Update Note
                     </button> 
                 </form>
                 {error ?  errorHTML : ''}

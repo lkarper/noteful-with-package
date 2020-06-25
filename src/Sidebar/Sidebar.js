@@ -14,7 +14,7 @@ const Sidebar = () => {
                 component={SidebarLinks}
             />
             <Route 
-                path="/note/:noteId"
+                path={["/note/:noteId", "/update-note/:noteId"]}
                 component={NotesSidebar}
             />    
         </SidebarError>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import Header from './Header/Header';
 import Sidebar from './Sidebar/Sidebar';
 import Main from './Main/Main';
@@ -37,6 +38,13 @@ class App extends React.Component {
     this.setState({
       notes: newNotes,
     });
+  }
+
+  updateFolders =(newFolder) => {
+    const newFolders = [...this.state.folders.filter(f => f.id !== newFolder.id), newFolder];
+    this.setState({
+      folders: newFolders
+    }, () => this.props.history.push(`/folder/${newFolder.id}`));
   }
 
   addFolder = (folder) => {
@@ -99,6 +107,7 @@ class App extends React.Component {
       addNote: this.addNote,
       deleteFolder: this.deleteFolder,
       updateNotes: this.updateNotes,
+      updateFolders: this.updateFolders,
     };
 
     return (
@@ -117,4 +126,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default withRouter(App);
