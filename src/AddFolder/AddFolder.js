@@ -78,9 +78,13 @@ class AddFolder extends Component {
                         type="text" 
                         id="folder-name" 
                         name="folder-name" 
-                        onChange={e => this.updateFolderName(e.currentTarget.value)} 
+                        onChange={e => this.updateFolderName(e.currentTarget.value)}
+                        aria-required="true"
+                        aria-describedby="aria-description"
+                        aria-invalid={nameError ? true : false} 
                         required 
                     />
+                    <span id="aria-description">You must enter a name for your folder.</span>
                     {this.state.folder.touched && <ValidationError message={nameError} />}
                     <button 
                         type="submit"

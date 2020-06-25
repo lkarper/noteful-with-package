@@ -14,7 +14,7 @@ const props = {
     },
 }
 
-describe.skip('Note component', () => {
+describe('Note component', () => {
 
     it('renders the UI without crashing', () => {
         const div = document.createElement('div');

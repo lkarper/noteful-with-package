@@ -4,7 +4,7 @@ import { mount } from 'enzyme';
 import toJSON from 'enzyme-to-json';
 import AddNote from './AddNote';
 
-describe.skip('AddNote component', () => {
+describe('AddNote component', () => {
 
     it('renders the UI without crashing', () => {
         const div = document.createElement('div');
