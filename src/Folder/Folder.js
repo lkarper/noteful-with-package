@@ -61,7 +61,7 @@ const Folder = (props) => {
                             to={{
                                 pathname: `/update-folder/${props.match.params.folderId}`,
                                 state: {
-                                    name: value.folders.find(f => f.id === parseInt(props.match.params.folderId)).name || null,
+                                    name: `${value.folders.length ? value.folders.find(f => f.id === parseInt(props.match.params.folderId)).name : null}`,
                                 },
                             }}
                         >
