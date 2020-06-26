@@ -14,9 +14,12 @@ const NotesSidebar = (props) => {
                         <p>Check your network connection and reload the page.</p>
                     </div>
                 );
-                const folderIdToMatch = value.notes
-                    .find(note => note.id === parseInt(props.match.params.noteId))
-                    .folder;
+                let folderIdToMatch;
+                if (value.notes.length) { 
+                    folderIdToMatch = value.notes
+                        .find(note => note.id === parseInt(props.match.params.noteId))
+                        .folder;
+                }
 
                 const folder = folderIdToMatch ? value.folders.find(f => f.id === folderIdToMatch) : null;
 
