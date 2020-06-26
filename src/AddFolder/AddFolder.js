@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import NotesContext from '../NotesContext/NotesContext';
 import ValidationError from '../ValidationError/ValidationError';
+import './AddFolder.css';
 
 class AddFolder extends Component {
 
@@ -72,7 +73,7 @@ class AddFolder extends Component {
 
         return (
             <div>
-                <form onSubmit={e => this.handleNewFolder(e, this.context.addFolder)}>
+                <form className="add-folder-form" onSubmit={e => this.handleNewFolder(e, this.context.addFolder)}>
                     <label htmlFor="folder-name">Enter a name for a new folder:</label>
                     <input 
                         type="text" 
@@ -89,6 +90,7 @@ class AddFolder extends Component {
                     <button 
                         type="submit"
                         disabled={nameError ? true : false}
+                        className="add-folder-button"
                     >
                         Create Folder
                     </button>
