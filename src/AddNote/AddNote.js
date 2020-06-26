@@ -22,8 +22,8 @@ class AddNote extends Component {
             touched: false,
         },
         folderId: {
-            value: parseInt(this.props.location.state.folderId),
-            touched: (!!this.props.location.state.folderId),
+            value: '',
+            touched: false,
         },
         content: {
             value: '',
@@ -108,6 +108,17 @@ class AddNote extends Component {
         const content = this.state.content.value.trim();
         if (content.length === 0) {
             return 'You must add content to your note and it must contain at least one character.';
+        }
+    }
+
+    componentDidMount() {
+        if (this.props.location.state) {
+            this.setState({
+                folderId: {
+                    value: parseInt(this.props.location.state.folderId),
+                    touched: true,
+                },
+            })
         }
     }
 

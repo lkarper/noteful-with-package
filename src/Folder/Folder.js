@@ -67,7 +67,7 @@ const Folder = (props) => {
                         >
                             Change Folder Name
                         </Link>
-                        <button onClick={() => deleteFolder(parseInt(props.match.params.folderId), value.deleteFolder)}>Delete Folder</button>
+                        <button className="delete-folder-button" onClick={() => deleteFolder(parseInt(props.match.params.folderId), value.deleteFolder)}>Delete Folder</button>
                     </section>
                 );
             }}
