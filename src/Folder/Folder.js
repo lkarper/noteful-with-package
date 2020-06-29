@@ -47,7 +47,7 @@ const Folder = (props) => {
                 
                 return (
                     <section className="notes">
-                        {!notes.length ? <p>Loading...</p> :
+                        {!value.notes.length ? <p>Loading...</p> :
                             <>
                                 <ul>
                                     {notes}
