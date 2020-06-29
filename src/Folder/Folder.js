@@ -71,7 +71,7 @@ const Folder = (props) => {
                         {(!!value.notes.length && verifyFolderId(value.folders)) &&
                             <>
                                 <ul>
-                                    {notes}
+                                    {notes.length ? notes : <li>No notes added to this folder yet.</li>}
                                     {error ? errorHTML : ''}
                                 </ul>
                                 <Link 
