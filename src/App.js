@@ -9,8 +9,6 @@ import './App.css';
 
 class App extends React.Component {
 
-  // static contextType = NotesContext;
-
   state = {
     folders: [],
     notes: [],
