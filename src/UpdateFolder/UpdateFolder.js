@@ -119,7 +119,7 @@ class UpdateFolder extends Component {
         const errorHTML = (
             <div className="folder-error">
                 <h2>Looks like something went wrong: {error}</h2>
-                <p>Folder could not be updated at this time.  Please try again later.</p>
+                <p>Folder can not be updated at this time.  Please check your connection and try again.</p>
             </div>
         );
         const nameError = this.validateFolderName();
@@ -130,9 +130,12 @@ class UpdateFolder extends Component {
 
         return (
             <div>
-                {(!this.context.folders.length && !this.context.folderError) && <h2>Loading...</h2>}
+                {(!this.context.folders.length && !this.context.folderError && !error) && <h2>Loading...</h2>}
                 {(!!this.context.folders.length && !error) &&
-                    <form onSubmit={e => this.handleUpdate(e)}>
+                    <form 
+                        className="add-folder-form"
+                        onSubmit={e => this.handleUpdate(e)}
+                    >
                         <label htmlFor="folder-name">{`Enter a new name for the folder "${oldName}":`}</label>
                         <input 
                             type="text" 
@@ -140,8 +143,12 @@ class UpdateFolder extends Component {
                             name="folder-name" 
                             onChange={e => this.updateFolderName(e.currentTarget.value)} 
                             value={this.state.folder.name}
+                            aria-required="true"
+                            aria-invalid={nameError ? true : false}
+                            aria-describedby="aria-description"
                             required 
                         />
+                        <span id="aria-description">You must enter a new name for your folder.</span>
                         {this.state.folder.touched && <ValidationError message={nameError} />}
                         <button 
                             type="submit"

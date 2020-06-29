@@ -141,7 +141,7 @@ class UpdateNote extends Component {
             })
             .then(data => {
                 this.context.updateNotes({...note, id: parseInt(this.props.match.params.noteId)});
-                this.props.history.push('/');
+                this.props.history.push(`/note/${this.props.match.params.noteId}`);
             })
             .catch(error => {
                 console.log('error', error);
@@ -179,6 +179,8 @@ class UpdateNote extends Component {
                         value={folder.id} 
                         onChange={e => this.updateFolderId(e.currentTarget.value)} 
                         checked={this.state.folderId.value === folder.id}
+                        aria-invalid={folderError ? true : false}
+                        aria-describedby="folder-aria-required"
                         required 
                     />
                     <label htmlFor={folder.id}>{folder.name}</label>
@@ -219,13 +221,22 @@ class UpdateNote extends Component {
                             className="note-name"
                             value={this.state.name.value} 
                             onChange={e => this.updateName(e.currentTarget.value)} 
+                            aria-required="true"
+                            aria-invalid={nameError ? true : false} 
+                            aria-describedby="note-aria-required"
                             required 
                         />
+                        <div id="note-aria-required">
+                            You must supply a name for your note.
+                        </div>
                         {this.state.name.touched && <ValidationError message={nameError} />}
                         <fieldset>
                             <legend>Select a folder to put the new note in: </legend>
                             {folderRadios}
                         </fieldset>
+                        <div id="folder-aria-required">
+                            You must select a folder in which to place your note.
+                        </div>
                         {<ValidationError message={folderError} />}
                         <label htmlFor="content">Enter note content here:</label>
                         <textarea 
@@ -237,8 +248,14 @@ class UpdateNote extends Component {
                             onChange={e => this.updateContent(e.currentTarget.value)} 
                             placeholder="Type your note here..." 
                             value={this.state.content.value}
+                            aria-required="true"
+                            aria-invalid={contentError ? true : false}
+                            aria-describedby="content-aria-required"
                             required>
                         </textarea>
+                        <div id="content-aria-required">
+                            You must add content to your note.
+                        </div>
                         {this.state.content.touched && <ValidationError message={contentError} />}
                         <button 
                             type="submit"
