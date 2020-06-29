@@ -24,7 +24,7 @@ const NotesList = () => {
                         {!error && !value.notes.length ? <h2>Loading...</h2> :
                             <>
                                 <ul>
-                                    {notes}
+                                    {notes.length && !error ? notes : <li>No notes saved.</li>}
                                     {error ? errorHTML : ''}
                                 </ul>
                                 <Link 
