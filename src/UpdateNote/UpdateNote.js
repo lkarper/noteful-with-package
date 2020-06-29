@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import NotesContext from '../NotesContext/NotesContext';
 import ValidationError from '../ValidationError/ValidationError';
 import config from '../config';
@@ -6,6 +7,21 @@ import config from '../config';
 class UpdateNote extends Component {
 
     static contextType = NotesContext;
+
+    static defaultProps = {
+        location: {
+            state: {
+                name: '',
+                folder: '',
+                content: '',
+            }
+        },
+        match: {
+            params: {
+                noteId: '',
+            }
+        },
+    }
 
     state = {
         name: {
@@ -178,6 +194,20 @@ class UpdateNote extends Component {
             </div>
         );
     }
+}
+
+UpdateNote.propTypes = {
+    location: PropTypes.shape({
+        state: PropTypes.shape({
+            name: PropTypes.string.isRequired,
+            folder: PropTypes.oneOfType([
+                PropTypes.string,
+                PropTypes.number
+            ]).isRequired,
+            content: PropTypes.string.isRequired,
+        })
+    }).isRequired,
+    match: PropTypes.object.isRequired,
 }
 
 export default UpdateNote;
