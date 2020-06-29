@@ -109,7 +109,16 @@ class App extends React.Component {
 
   render() { 
     const contextValue = {
-      folders: this.state.folders,
+      folders: this.state.folders.sort((a, b) => {
+        const nameA = a.name.toLowerCase();
+        const nameB = b.name.toLowerCase();
+        if (nameA < nameB) {
+          return -1
+        } else if (nameA > nameB) {
+          return 1;
+        }
+        return 0;
+      }),
       notes: this.state.notes,
       folderError: this.state.folderError,
       noteError: this.state.noteError,
