@@ -160,7 +160,8 @@ class AddNote extends Component {
 
         return (
             <div className="add-note-container">
-                {!this.context.folders.length ? <h2>Loading...</h2> : 
+                {(!this.context.folders.length && !error) && <h2>Loading...</h2>}
+                {!!this.context.folders.length &&  
                     <form 
                         className="add-note-form"
                         onSubmit={e => this.handleAddNote(e, this.context.addNote)}
