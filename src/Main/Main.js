@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import NotesList from '../NotesList/NotesList';
 import Folder from '../Folder/Folder';
 import Note from '../Note/Note';
@@ -10,46 +10,74 @@ import UpdateFolder from '../UpdateFolder/UpdateFolder';
 import NotesError from '../NotesError/NotesError';
 import AddFolderError from '../AddFolderError/AddFolderError';
 import AddNoteError from '../AddNoteError/AddNoteError';
+import PageNotFound from '../PageNotFound/PageNotFound';
 import './Main.css';
 
 
 const Main = () => {
     return (
         <main>
-            <NotesError>
+            <Switch>
                 <Route 
                     exact path="/"
-                    component={NotesList}
+                    render={rProps => (
+                        <NotesError>
+                            <NotesList {...rProps} />
+                        </NotesError>
+                    )}
                 />
                 <Route 
-                    path="/note/:noteId"
-                    component={Note}
+                    exact path="/note/:noteId"
+                    render={rProps => (
+                        <NotesError>
+                            <Note {...rProps} />
+                        </NotesError>
+                    )}
                 />
                 <Route
-                    path="/folder/:folderId"
-                    component={Folder}
+                    exact path="/folder/:folderId"
+                    render={rProps => (
+                        <NotesError>
+                            <Folder {...rProps} />
+                        </NotesError>
+                    )}
                 />
-            </NotesError>
-            <AddFolderError>
                 <Route
-                    path="/add-folder"
-                    component={AddFolder}
+                    exact path="/add-folder"
+                    render={rProps => (
+                        <AddFolderError>
+                            <AddFolder {...rProps} />
+                        </AddFolderError>
+                    )}
                 />
                 <Route 
-                    path="/update-folder/:folderId"
-                    component={UpdateFolder}
+                    exact path="/update-folder/:folderId"
+                    render={rProps => (
+                        <AddFolderError>
+                            <UpdateFolder {...rProps} />
+                        </AddFolderError>
+                    )}
                 />
-            </AddFolderError>
-            <AddNoteError>
                 <Route
-                    path="/add-note"
-                    component={AddNote}
+                    exact path="/add-note"
+                    render={rProps => (
+                        <AddNoteError>
+                            <AddNote {...rProps} />
+                        </AddNoteError>
+                    )}
                 />
                 <Route 
-                    path="/update-note/:noteId"
-                    component={UpdateNote}
+                    exact path="/update-note/:noteId"
+                    render={rProps => (
+                        <AddNoteError>
+                            <UpdateNote {...rProps} />
+                        </AddNoteError>
+                    )}
                 />
-            </AddNoteError>
+                <Route 
+                    component={PageNotFound}
+                />
+            </Switch>
         </main>
     );
 }
