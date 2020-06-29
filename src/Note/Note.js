@@ -18,6 +18,9 @@ class Note extends Component {
                 noteId: '',
             },
         },
+        history: {
+            push: () => {},
+        }
     }
 
     deleteNoteRequest = (noteId, cb) => {

@@ -9,6 +9,12 @@ class AddFolder extends Component {
 
     static contextType = NotesContext;
 
+    static defaultProps = {
+        history: {
+            push: () => {},
+        }
+    }
+
     state = {
         folder: {
             name: '',

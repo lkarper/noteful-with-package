@@ -6,7 +6,7 @@ import toJSON from 'enzyme-to-json';
 import Folder from './Folder';
 
 
-describe.skip('Folder component', () => {
+describe('Folder component', () => {
 
     it('renders the UI without crashing', () => {
         const div = document.createElement('div');

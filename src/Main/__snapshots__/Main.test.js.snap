@@ -73,29 +73,9 @@ exports[`Main component renders the UI as expected 1`] = `
               <section
                 className="notes"
               >
-                <ul />
-                <Link
-                  to={
-                    Object {
-                      "pathname": "/add-note",
-                      "state": Object {
-                        "folderId": null,
-                      },
-                    }
-                  }
-                >
-                  <LinkAnchor
-                    href="/add-note"
-                    navigate={[Function]}
-                  >
-                    <a
-                      href="/add-note"
-                      onClick={[Function]}
-                    >
-                      Add note
-                    </a>
-                  </LinkAnchor>
-                </Link>
+                <h2>
+                  Loading...
+                </h2>
               </section>
             </NotesList>
           </Route>
@@ -113,11 +93,19 @@ exports[`Main component renders the UI as expected 1`] = `
             component={[Function]}
             path="/add-folder"
           />
+          <Route
+            component={[Function]}
+            path="/update-folder/:folderId"
+          />
         </AddFolderError>
         <AddNoteError>
           <Route
             component={[Function]}
             path="/add-note"
+          />
+          <Route
+            component={[Function]}
+            path="/update-note/:noteId"
           />
         </AddNoteError>
       </main>

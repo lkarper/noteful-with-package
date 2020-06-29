@@ -15,6 +15,9 @@ class AddNote extends Component {
                 folderId: '',
             },
         },
+        history: {
+            push: () => {},
+        }
     };
 
     state = {

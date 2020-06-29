@@ -72,6 +72,11 @@ exports[`AddNote component disables submit button when input is blank 1`] = `
 
 exports[`AddNote component does not display an error message when folder is clicked 1`] = `
 <AddNote
+  history={
+    Object {
+      "push": [Function],
+    }
+  }
   location={
     Object {
       "state": Object {
@@ -83,59 +88,20 @@ exports[`AddNote component does not display an error message when folder is clic
   <div
     className="add-note-container"
   >
-    <form
-      className="add-note-form"
-      onSubmit={[Function]}
-    >
-      <label
-        htmlFor="add-note"
-      >
-        Enter name for a new note: 
-      </label>
-      <input
-        className="note-name"
-        id="add-note"
-        name="add-note"
-        onChange={[Function]}
-        required={true}
-        type="text"
-      />
-      <fieldset>
-        <legend>
-          Select a folder to put the new note in: 
-        </legend>
-      </fieldset>
-      <ValidationError
-        message=""
-      />
-      <label
-        htmlFor="content"
-      >
-        Enter note content here:
-      </label>
-      <textarea
-        className="note-content"
-        cols="75"
-        id="content"
-        name="content"
-        onChange={[Function]}
-        placeholder="Type your note here..."
-        required={true}
-        rows="5"
-      />
-      <button
-        disabled={true}
-        type="submit"
-      >
-        Add Note
-      </button>
-    </form>
+    <h2>
+      Loading...
+    </h2>
   </div>
 </AddNote>
 `;
 
 exports[`AddNote component enables submit button when valid note name, folder, and content are provided 1`] = `
 <AddNote
+  history={
+    Object {
+      "push": [Function],
+    }
+  }
   location={
     Object {
       "state": Object {
@@ -147,59 +113,9 @@ exports[`AddNote component enables submit button when valid note name, folder, a
   <div
     className="add-note-container"
   >
-    <form
-      className="add-note-form"
-      onSubmit={[Function]}
-    >
-      <label
-        htmlFor="add-note"
-      >
-        Enter name for a new note: 
-      </label>
-      <input
-        className="note-name"
-        id="add-note"
-        name="add-note"
-        onChange={[Function]}
-        required={true}
-        type="text"
-      />
-      <ValidationError
-        message=""
-      />
-      <fieldset>
-        <legend>
-          Select a folder to put the new note in: 
-        </legend>
-      </fieldset>
-      <ValidationError
-        message=""
-      />
-      <label
-        htmlFor="content"
-      >
-        Enter note content here:
-      </label>
-      <textarea
-        className="note-content"
-        cols="75"
-        id="content"
-        name="content"
-        onChange={[Function]}
-        placeholder="Type your note here..."
-        required={true}
-        rows="5"
-      />
-      <ValidationError
-        message=""
-      />
-      <button
-        disabled={false}
-        type="submit"
-      >
-        Add Note
-      </button>
-    </form>
+    <h2>
+      Loading...
+    </h2>
   </div>
 </AddNote>
 `;
@@ -452,6 +368,11 @@ exports[`AddNote component renders an error message when the note name input con
 
 exports[`AddNote component renders the UI as expected 1`] = `
 <AddNote
+  history={
+    Object {
+      "push": [Function],
+    }
+  }
   location={
     Object {
       "state": Object {
@@ -463,59 +384,9 @@ exports[`AddNote component renders the UI as expected 1`] = `
   <div
     className="add-note-container"
   >
-    <form
-      className="add-note-form"
-      onSubmit={[Function]}
-    >
-      <label
-        htmlFor="add-note"
-      >
-        Enter name for a new note: 
-      </label>
-      <input
-        className="note-name"
-        id="add-note"
-        name="add-note"
-        onChange={[Function]}
-        required={true}
-        type="text"
-      />
-      <fieldset>
-        <legend>
-          Select a folder to put the new note in: 
-        </legend>
-      </fieldset>
-      <ValidationError
-        message="You must select a folder in which to place your note."
-      >
-        <div
-          className="validation-error"
-        >
-          You must select a folder in which to place your note.
-        </div>
-      </ValidationError>
-      <label
-        htmlFor="content"
-      >
-        Enter note content here:
-      </label>
-      <textarea
-        className="note-content"
-        cols="75"
-        id="content"
-        name="content"
-        onChange={[Function]}
-        placeholder="Type your note here..."
-        required={true}
-        rows="5"
-      />
-      <button
-        disabled={true}
-        type="submit"
-      >
-        Add Note
-      </button>
-    </form>
+    <h2>
+      Loading...
+    </h2>
   </div>
 </AddNote>
 `;

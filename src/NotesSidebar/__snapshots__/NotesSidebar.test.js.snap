@@ -119,6 +119,11 @@ exports[`NotesSideBar Component renders the UI as expected 1`] = `
     }
   >
     <NotesSidebar
+      history={
+        Object {
+          "push": [Function],
+        }
+      }
       match={
         Object {
           "params": Object {
@@ -130,46 +135,12 @@ exports[`NotesSideBar Component renders the UI as expected 1`] = `
       <nav
         className="sidebar"
       >
-        <NavLink
-          activeClassName="highlighted"
-          className="folder-link"
-          to="/folder/b0715efe-ffaf-11e8-8eb2-f2801f1b9fd1"
-        >
-          <Link
-            aria-current={null}
-            className="folder-link"
-            to={
-              Object {
-                "hash": "",
-                "pathname": "/folder/b0715efe-ffaf-11e8-8eb2-f2801f1b9fd1",
-                "search": "",
-                "state": null,
-              }
-            }
-          >
-            <LinkAnchor
-              aria-current={null}
-              className="folder-link"
-              href="/folder/b0715efe-ffaf-11e8-8eb2-f2801f1b9fd1"
-              navigate={[Function]}
-            >
-              <a
-                aria-current={null}
-                className="folder-link"
-                href="/folder/b0715efe-ffaf-11e8-8eb2-f2801f1b9fd1"
-                onClick={[Function]}
-              >
-                Important
-              </a>
-            </LinkAnchor>
-          </Link>
-        </NavLink>
-        <button
-          onClick={[Function]}
-          type="buton"
-        >
-          Back to folder
-        </button>
+        <h2>
+          Sorry, could not load folders.
+        </h2>
+        <p>
+          Check your network connection and reload the page.
+        </p>
       </nav>
     </NotesSidebar>
   </Router>

@@ -28,23 +28,23 @@ exports[`ShortNote component renders an error message when the delete request fa
       note={
         Object {
           "content": "Lorem ipsum...",
-          "folderId": "PlaceholderFolderId",
-          "id": "PlaceholderId",
-          "modified": "2020-05-26T15:42:51.026Z",
+          "date_modified": "2020-06-29T16:02:09.859Z",
+          "folder": 0,
+          "id": 0,
           "name": "Placeholder name",
         }
       }
     >
       <li>
         <Link
-          to="/note/PlaceholderId"
+          to="/note/0"
         >
           <LinkAnchor
-            href="/note/PlaceholderId"
+            href="/note/0"
             navigate={[Function]}
           >
             <a
-              href="/note/PlaceholderId"
+              href="/note/0"
               onClick={[Function]}
             >
               Placeholder name
@@ -52,7 +52,7 @@ exports[`ShortNote component renders an error message when the delete request fa
           </LinkAnchor>
         </Link>
         <p>
-          Last modified on: Tue May 26 2020 11:42:51 GMT-0400 (Eastern Daylight Time)
+          Last modified on: Mon Jun 29 2020 12:02:09 GMT-0400 (Eastern Daylight Time)
         </p>
         <button
           onClick={[Function]}
@@ -60,16 +60,6 @@ exports[`ShortNote component renders an error message when the delete request fa
         >
           Delete Note
         </button>
-        <div>
-          <h2>
-            Could not delete note: 
-            server error
-            .
-          </h2>
-          <p>
-            Check your connection and try again.
-          </p>
-        </div>
       </li>
     </ShortNote>
   </Router>
@@ -104,23 +94,23 @@ exports[`ShortNote component renders the UI as expected 1`] = `
       note={
         Object {
           "content": "Lorem ipsum...",
-          "folderId": "PlaceholderFolderId",
-          "id": "PlaceholderId",
-          "modified": "2020-05-26T15:36:38.406Z",
+          "date_modified": "2020-06-29T16:02:09.859Z",
+          "folder": 0,
+          "id": 0,
           "name": "Placeholder name",
         }
       }
     >
       <li>
         <Link
-          to="/note/PlaceholderId"
+          to="/note/0"
         >
           <LinkAnchor
-            href="/note/PlaceholderId"
+            href="/note/0"
             navigate={[Function]}
           >
             <a
-              href="/note/PlaceholderId"
+              href="/note/0"
               onClick={[Function]}
             >
               Placeholder name
@@ -128,7 +118,7 @@ exports[`ShortNote component renders the UI as expected 1`] = `
           </LinkAnchor>
         </Link>
         <p>
-          Last modified on: Tue May 26 2020 11:36:38 GMT-0400 (Eastern Daylight Time)
+          Last modified on: Mon Jun 29 2020 12:02:09 GMT-0400 (Eastern Daylight Time)
         </p>
         <button
           onClick={[Function]}

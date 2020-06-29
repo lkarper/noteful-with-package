@@ -62,6 +62,9 @@ NotesSidebar.defaultProps = {
             noteId: '',
         },
     },
+    history: {
+        push: () => {},
+    }
 }
 
 NotesSidebar.propTypes = {

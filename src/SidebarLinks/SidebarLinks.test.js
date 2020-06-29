@@ -4,7 +4,7 @@ import { mount } from 'enzyme';
 import toJSON from 'enzyme-to-json';
 import SidebarLinks from './SidebarLinks';
 
-describe.skip('SidebarLinks component', () => {
+describe('SidebarLinks component', () => {
 
     it('renders the UI without crashing', () => {
         const wrapper = mount(

@@ -5,7 +5,7 @@ import { mount } from 'enzyme';
 import toJSON from 'enzyme-to-json';
 import Main from './Main';
 
-describe.skip('Main component', () => {
+describe('Main component', () => {
     it('renders the UI without crashing', () => {
         const div = document.createElement('div');
         ReactDOM.render(

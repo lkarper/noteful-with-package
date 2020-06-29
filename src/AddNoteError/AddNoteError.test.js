@@ -5,7 +5,7 @@ import toJSON from 'enzyme-to-json';
 import AddNoteError from './AddNoteError';
 import AddNote from '../AddNote/AddNote';
 
-describe.skip('AddNoteError component', () => {
+describe('AddNoteError component', () => {
 
     it('renders the UI without crashing', () => {
         const wrapper = mount(

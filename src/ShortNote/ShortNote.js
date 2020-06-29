@@ -16,7 +16,7 @@ class ShortNote extends Component {
     static defaultProps = {
         note: {
             name: "Placeholder name",
-            id: "PlaceholderId", 
+            id: 0, 
             date_modified: (new Date()).toJSON(), 
             folder: 0, 
             content: "Lorem ipsum...",

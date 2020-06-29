@@ -2,6 +2,11 @@
 
 exports[`Note component renders the UI as expected when a match prop is passed 1`] = `
 <Note
+  history={
+    Object {
+      "push": [Function],
+    }
+  }
   match={
     Object {
       "params": Object {
@@ -14,17 +19,19 @@ exports[`Note component renders the UI as expected when a match prop is passed 1
     className="notes"
   >
     <h2>
-      Error
+      Loading...
     </h2>
-    <p>
-      Could not load note.  Check your connection and reload the page.
-    </p>
   </section>
 </Note>
 `;
 
 exports[`Note component renders the UI as expected when no match prop is passed 1`] = `
 <Note
+  history={
+    Object {
+      "push": [Function],
+    }
+  }
   match={
     Object {
       "params": Object {
@@ -37,11 +44,8 @@ exports[`Note component renders the UI as expected when no match prop is passed 
     className="notes"
   >
     <h2>
-      Error
+      Loading...
     </h2>
-    <p>
-      Could not load note.  Check your connection and reload the page.
-    </p>
   </section>
 </Note>
 `;

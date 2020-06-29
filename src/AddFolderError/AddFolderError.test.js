@@ -6,7 +6,7 @@ import AddFolderError from './AddFolderError';
 import SidebarLinks from '../SidebarLinks/SidebarLinks';
 import NotesSidebar from '../NotesSidebar/NotesSidebar';
 
-describe.skip('AddFolderError component', () => {
+describe('AddFolderError component', () => {
 
     it('renders the UI without crashing', () => {
         const wrapper = mount(

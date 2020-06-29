@@ -5,7 +5,7 @@ import { mount } from 'enzyme';
 import toJSON from 'enzyme-to-json';
 import Header from './Header';
 
-describe.skip('Header component', () => {
+describe('Header component', () => {
 
     it('renders the UI without crashing', () => {
         const div = document.createElement('div');

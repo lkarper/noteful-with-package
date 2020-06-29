@@ -6,7 +6,7 @@ import NotesError from './NotesError';
 import NotesList from '../NotesList/NotesList';
 import Note from '../Note/Note';
 
-describe.skip('NotesError component', () => {
+describe('NotesError component', () => {
 
     it('renders the UI without crashing', () => {
         const wrapper = mount(

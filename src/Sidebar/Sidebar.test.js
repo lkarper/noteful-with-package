@@ -4,7 +4,7 @@ import { mount } from 'enzyme';
 import toJSON from 'enzyme-to-json';
 import Sidebar from './Sidebar';
 
-describe.skip('Sidebar component', () => {
+describe('Sidebar component', () => {
     it('renders the UI without crashing', () => {
         const wrapper = mount(
             <BrowserRouter>

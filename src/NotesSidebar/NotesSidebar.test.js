@@ -12,7 +12,7 @@ const props = {
     },
 }
 
-describe.skip('NotesSideBar Component', () => {
+describe('NotesSideBar Component', () => {
     it('renders the UI without crashing', () => {
         const wrapper = mount(
             <BrowserRouter>

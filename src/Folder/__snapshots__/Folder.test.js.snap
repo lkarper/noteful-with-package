@@ -36,29 +36,9 @@ exports[`Folder component renders the UI as expected 1`] = `
       <section
         className="notes"
       >
-        <ul />
-        <Link
-          to={
-            Object {
-              "pathname": "/add-note",
-              "state": Object {
-                "folderId": "",
-              },
-            }
-          }
-        >
-          <LinkAnchor
-            href="/add-note"
-            navigate={[Function]}
-          >
-            <a
-              href="/add-note"
-              onClick={[Function]}
-            >
-              Add note
-            </a>
-          </LinkAnchor>
-        </Link>
+        <p>
+          Loading...
+        </p>
       </section>
     </Folder>
   </Router>

@@ -79,111 +79,9 @@ exports[`Sidebar component renders the UI as expected 1`] = `
             <nav
               className="sidebar"
             >
-              <NavLink
-                activeClassName="highlighted"
-                className="folder-link"
-                key="b0715efe-ffaf-11e8-8eb2-f2801f1b9fd1"
-                to="/folder/b0715efe-ffaf-11e8-8eb2-f2801f1b9fd1"
-              >
-                <Link
-                  aria-current={null}
-                  className="folder-link"
-                  to={
-                    Object {
-                      "hash": "",
-                      "pathname": "/folder/b0715efe-ffaf-11e8-8eb2-f2801f1b9fd1",
-                      "search": "",
-                      "state": null,
-                    }
-                  }
-                >
-                  <LinkAnchor
-                    aria-current={null}
-                    className="folder-link"
-                    href="/folder/b0715efe-ffaf-11e8-8eb2-f2801f1b9fd1"
-                    navigate={[Function]}
-                  >
-                    <a
-                      aria-current={null}
-                      className="folder-link"
-                      href="/folder/b0715efe-ffaf-11e8-8eb2-f2801f1b9fd1"
-                      onClick={[Function]}
-                    >
-                      Important
-                    </a>
-                  </LinkAnchor>
-                </Link>
-              </NavLink>
-              <NavLink
-                activeClassName="highlighted"
-                className="folder-link"
-                key="b07161a6-ffaf-11e8-8eb2-f2801f1b9fd1"
-                to="/folder/b07161a6-ffaf-11e8-8eb2-f2801f1b9fd1"
-              >
-                <Link
-                  aria-current={null}
-                  className="folder-link"
-                  to={
-                    Object {
-                      "hash": "",
-                      "pathname": "/folder/b07161a6-ffaf-11e8-8eb2-f2801f1b9fd1",
-                      "search": "",
-                      "state": null,
-                    }
-                  }
-                >
-                  <LinkAnchor
-                    aria-current={null}
-                    className="folder-link"
-                    href="/folder/b07161a6-ffaf-11e8-8eb2-f2801f1b9fd1"
-                    navigate={[Function]}
-                  >
-                    <a
-                      aria-current={null}
-                      className="folder-link"
-                      href="/folder/b07161a6-ffaf-11e8-8eb2-f2801f1b9fd1"
-                      onClick={[Function]}
-                    >
-                      Super
-                    </a>
-                  </LinkAnchor>
-                </Link>
-              </NavLink>
-              <NavLink
-                activeClassName="highlighted"
-                className="folder-link"
-                key="b07162f0-ffaf-11e8-8eb2-f2801f1b9fd1"
-                to="/folder/b07162f0-ffaf-11e8-8eb2-f2801f1b9fd1"
-              >
-                <Link
-                  aria-current={null}
-                  className="folder-link"
-                  to={
-                    Object {
-                      "hash": "",
-                      "pathname": "/folder/b07162f0-ffaf-11e8-8eb2-f2801f1b9fd1",
-                      "search": "",
-                      "state": null,
-                    }
-                  }
-                >
-                  <LinkAnchor
-                    aria-current={null}
-                    className="folder-link"
-                    href="/folder/b07162f0-ffaf-11e8-8eb2-f2801f1b9fd1"
-                    navigate={[Function]}
-                  >
-                    <a
-                      aria-current={null}
-                      className="folder-link"
-                      href="/folder/b07162f0-ffaf-11e8-8eb2-f2801f1b9fd1"
-                      onClick={[Function]}
-                    >
-                      Spangley
-                    </a>
-                  </LinkAnchor>
-                </Link>
-              </NavLink>
+              <p>
+                Loading...
+              </p>
               <NavLink
                 activeClassName="highlighted"
                 className="folder-link"
@@ -223,7 +121,12 @@ exports[`Sidebar component renders the UI as expected 1`] = `
         </Route>
         <Route
           component={[Function]}
-          path="/note/:noteId"
+          path={
+            Array [
+              "/note/:noteId",
+              "/update-note/:noteId",
+            ]
+          }
         />
       </SidebarError>
     </Sidebar>

@@ -24,141 +24,87 @@ exports[`App component renders the UI as expected 1`] = `
       }
     }
   >
-    <App>
-      <div
-        className="App"
+    <withRouter(App)>
+      <App
+        history={
+          Object {
+            "action": "POP",
+            "block": [Function],
+            "createHref": [Function],
+            "go": [Function],
+            "goBack": [Function],
+            "goForward": [Function],
+            "length": 1,
+            "listen": [Function],
+            "location": Object {
+              "hash": "",
+              "pathname": "/",
+              "search": "",
+              "state": undefined,
+            },
+            "push": [Function],
+            "replace": [Function],
+          }
+        }
+        location={
+          Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          }
+        }
+        match={
+          Object {
+            "isExact": true,
+            "params": Object {},
+            "path": "/",
+            "url": "/",
+          }
+        }
       >
-        <Header>
-          <header>
-            <h1>
-              <Link
-                to="/"
-              >
-                <LinkAnchor
-                  href="/"
-                  navigate={[Function]}
-                >
-                  <a
-                    href="/"
-                    onClick={[Function]}
-                  >
-                    Noteful
-                  </a>
-                </LinkAnchor>
-              </Link>
-            </h1>
-          </header>
-        </Header>
         <div
-          className="content"
+          className="App"
         >
-          <Sidebar>
-            <SidebarError>
-              <Route
-                component={[Function]}
-                exact={true}
-                path={
-                  Array [
-                    "/",
-                    "/folder/:folderId",
-                    "/add-folder",
-                    "/add-note",
-                  ]
-                }
-              >
-                <SidebarLinks
-                  history={
-                    Object {
-                      "action": "POP",
-                      "block": [Function],
-                      "createHref": [Function],
-                      "go": [Function],
-                      "goBack": [Function],
-                      "goForward": [Function],
-                      "length": 1,
-                      "listen": [Function],
-                      "location": Object {
-                        "hash": "",
-                        "pathname": "/",
-                        "search": "",
-                        "state": undefined,
-                      },
-                      "push": [Function],
-                      "replace": [Function],
-                    }
-                  }
-                  location={
-                    Object {
-                      "hash": "",
-                      "pathname": "/",
-                      "search": "",
-                      "state": undefined,
-                    }
-                  }
-                  match={
-                    Object {
-                      "isExact": true,
-                      "params": Object {},
-                      "path": "/",
-                      "url": "/",
-                    }
-                  }
+          <Header>
+            <header>
+              <h1>
+                <Link
+                  to="/"
                 >
-                  <nav
-                    className="sidebar"
+                  <LinkAnchor
+                    href="/"
+                    navigate={[Function]}
                   >
-                    <NavLink
-                      activeClassName="highlighted"
-                      className="folder-link"
-                      to="/add-folder"
+                    <a
+                      href="/"
+                      onClick={[Function]}
                     >
-                      <Link
-                        aria-current={null}
-                        className="folder-link"
-                        to={
-                          Object {
-                            "hash": "",
-                            "pathname": "/add-folder",
-                            "search": "",
-                            "state": null,
-                          }
-                        }
-                      >
-                        <LinkAnchor
-                          aria-current={null}
-                          className="folder-link"
-                          href="/add-folder"
-                          navigate={[Function]}
-                        >
-                          <a
-                            aria-current={null}
-                            className="folder-link"
-                            href="/add-folder"
-                            onClick={[Function]}
-                          >
-                            Add folder
-                          </a>
-                        </LinkAnchor>
-                      </Link>
-                    </NavLink>
-                  </nav>
-                </SidebarLinks>
-              </Route>
-              <Route
-                component={[Function]}
-                path="/note/:noteId"
-              />
-            </SidebarError>
-          </Sidebar>
-          <Main>
-            <main>
-              <NotesError>
+                      Noteful
+                    </a>
+                  </LinkAnchor>
+                </Link>
+              </h1>
+            </header>
+          </Header>
+          <div
+            className="content"
+          >
+            <Sidebar>
+              <SidebarError>
                 <Route
                   component={[Function]}
                   exact={true}
-                  path="/"
+                  path={
+                    Array [
+                      "/",
+                      "/folder/:folderId",
+                      "/add-folder",
+                      "/add-note",
+                    ]
+                  }
                 >
-                  <NotesList
+                  <SidebarLinks
                     history={
                       Object {
                         "action": "POP",
@@ -196,61 +142,150 @@ exports[`App component renders the UI as expected 1`] = `
                       }
                     }
                   >
-                    <section
-                      className="notes"
+                    <nav
+                      className="sidebar"
                     >
-                      <ul />
-                      <Link
-                        to={
-                          Object {
-                            "pathname": "/add-note",
-                            "state": Object {
-                              "folderId": null,
-                            },
-                          }
-                        }
+                      <p>
+                        Loading...
+                      </p>
+                      <NavLink
+                        activeClassName="highlighted"
+                        className="folder-link"
+                        to="/add-folder"
                       >
-                        <LinkAnchor
-                          href="/add-note"
-                          navigate={[Function]}
+                        <Link
+                          aria-current={null}
+                          className="folder-link"
+                          to={
+                            Object {
+                              "hash": "",
+                              "pathname": "/add-folder",
+                              "search": "",
+                              "state": null,
+                            }
+                          }
                         >
-                          <a
-                            href="/add-note"
-                            onClick={[Function]}
+                          <LinkAnchor
+                            aria-current={null}
+                            className="folder-link"
+                            href="/add-folder"
+                            navigate={[Function]}
                           >
-                            Add note
-                          </a>
-                        </LinkAnchor>
-                      </Link>
-                    </section>
-                  </NotesList>
+                            <a
+                              aria-current={null}
+                              className="folder-link"
+                              href="/add-folder"
+                              onClick={[Function]}
+                            >
+                              Add folder
+                            </a>
+                          </LinkAnchor>
+                        </Link>
+                      </NavLink>
+                    </nav>
+                  </SidebarLinks>
                 </Route>
                 <Route
                   component={[Function]}
-                  path="/note/:noteId"
+                  path={
+                    Array [
+                      "/note/:noteId",
+                      "/update-note/:noteId",
+                    ]
+                  }
                 />
-                <Route
-                  component={[Function]}
-                  path="/folder/:folderId"
-                />
-              </NotesError>
-              <AddFolderError>
-                <Route
-                  component={[Function]}
-                  path="/add-folder"
-                />
-              </AddFolderError>
-              <AddNoteError>
-                <Route
-                  component={[Function]}
-                  path="/add-note"
-                />
-              </AddNoteError>
-            </main>
-          </Main>
+              </SidebarError>
+            </Sidebar>
+            <Main>
+              <main>
+                <NotesError>
+                  <Route
+                    component={[Function]}
+                    exact={true}
+                    path="/"
+                  >
+                    <NotesList
+                      history={
+                        Object {
+                          "action": "POP",
+                          "block": [Function],
+                          "createHref": [Function],
+                          "go": [Function],
+                          "goBack": [Function],
+                          "goForward": [Function],
+                          "length": 1,
+                          "listen": [Function],
+                          "location": Object {
+                            "hash": "",
+                            "pathname": "/",
+                            "search": "",
+                            "state": undefined,
+                          },
+                          "push": [Function],
+                          "replace": [Function],
+                        }
+                      }
+                      location={
+                        Object {
+                          "hash": "",
+                          "pathname": "/",
+                          "search": "",
+                          "state": undefined,
+                        }
+                      }
+                      match={
+                        Object {
+                          "isExact": true,
+                          "params": Object {},
+                          "path": "/",
+                          "url": "/",
+                        }
+                      }
+                    >
+                      <section
+                        className="notes"
+                      >
+                        <h2>
+                          Loading...
+                        </h2>
+                      </section>
+                    </NotesList>
+                  </Route>
+                  <Route
+                    component={[Function]}
+                    path="/note/:noteId"
+                  />
+                  <Route
+                    component={[Function]}
+                    path="/folder/:folderId"
+                  />
+                </NotesError>
+                <AddFolderError>
+                  <Route
+                    component={[Function]}
+                    path="/add-folder"
+                  />
+                  <Route
+                    component={[Function]}
+                    path="/update-folder/:folderId"
+                  />
+                </AddFolderError>
+                <AddNoteError>
+                  <Route
+                    component={[Function]}
+                    path="/add-note"
+                  />
+                  <Route
+                    component={[Function]}
+                    path="/update-note/:noteId"
+                  />
+                </AddNoteError>
+              </main>
+            </Main>
+          </div>
         </div>
-      </div>
-    </App>
+      </App>
+    </withRouter(App)>
   </Router>
 </BrowserRouter>
 `;

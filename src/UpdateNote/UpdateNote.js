@@ -50,7 +50,7 @@ class UpdateNote extends Component {
                 },
             })
         } else {
-            fetch(`${config.API_URL}/notes/${noteId}`, {
+            fetch(`${config.API_URL}/notes/${this.props.match.params.noteId}`, {
                 headers: {
                     'Authorization': `Bearer ${config.API_KEY}`
                 },
@@ -245,16 +245,6 @@ class UpdateNote extends Component {
 }
 
 UpdateNote.propTypes = {
-    location: PropTypes.shape({
-        state: PropTypes.shape({
-            name: PropTypes.string.isRequired,
-            folder: PropTypes.oneOfType([
-                PropTypes.string,
-                PropTypes.number
-            ]).isRequired,
-            content: PropTypes.string.isRequired,
-        })
-    }).isRequired,
     match: PropTypes.object.isRequired,
 }
 

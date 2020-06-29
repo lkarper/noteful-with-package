@@ -4,7 +4,7 @@ import { mount } from 'enzyme';
 import toJSON from 'enzyme-to-json';
 import ShortNote from './ShortNote';
 
-describe.skip('ShortNote component', () => {
+describe('ShortNote component', () => {
     it('renders the UI without crashing', () => {
         const wrapper = mount(
         <BrowserRouter>

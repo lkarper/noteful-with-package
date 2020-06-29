@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddNoteError component renders an error message when an error occurs in the DOM tree beneath it 1`] = `
+<AddNoteError>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <AddNote
+        history={
+          Object {
+            "push": [Function],
+          }
+        }
+        location=""
+      >
+        <div
+          className="add-note-container"
+        >
+          <h2>
+            Loading...
+          </h2>
+        </div>
+      </AddNote>
+    </Router>
+  </BrowserRouter>
+</AddNoteError>
+`;
+
+exports[`AddNoteError component renders the UI as expected 1`] = `
+<AddNoteError>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <AddNote
+        history={
+          Object {
+            "push": [Function],
+          }
+        }
+        location={
+          Object {
+            "state": Object {
+              "folderId": "",
+            },
+          }
+        }
+      >
+        <div
+          className="add-note-container"
+        >
+          <h2>
+            Loading...
+          </h2>
+        </div>
+      </AddNote>
+    </Router>
+  </BrowserRouter>
+</AddNoteError>
+`;

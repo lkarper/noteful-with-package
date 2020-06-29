@@ -1,8 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AddFolder component disables submit button when input is blank 1`] = `
-<Fragment>
+<div>
   <form
+    className="add-folder-form"
     onSubmit={[Function]}
   >
     <label
@@ -11,25 +12,35 @@ exports[`AddFolder component disables submit button when input is blank 1`] = `
       Enter a name for a new folder:
     </label>
     <input
+      aria-describedby="aria-description"
+      aria-invalid={true}
+      aria-required="true"
       id="folder-name"
       name="folder-name"
       onChange={[Function]}
       required={true}
       type="text"
     />
+    <span
+      id="aria-description"
+    >
+      You must enter a name for your folder.
+    </span>
     <button
+      className="add-folder-button"
       disabled={true}
       type="submit"
     >
       Create Folder
     </button>
   </form>
-</Fragment>
+</div>
 `;
 
 exports[`AddFolder component enables submit button when valid folder name is entered 1`] = `
-<Fragment>
+<div>
   <form
+    className="add-folder-form"
     onSubmit={[Function]}
   >
     <label
@@ -38,26 +49,38 @@ exports[`AddFolder component enables submit button when valid folder name is ent
       Enter a name for a new folder:
     </label>
     <input
+      aria-describedby="aria-description"
+      aria-invalid={false}
+      aria-required="true"
       id="folder-name"
       name="folder-name"
       onChange={[Function]}
       required={true}
       type="text"
     />
-    <ValidationError />
+    <span
+      id="aria-description"
+    >
+      You must enter a name for your folder.
+    </span>
+    <ValidationError
+      message=""
+    />
     <button
+      className="add-folder-button"
       disabled={false}
       type="submit"
     >
       Create Folder
     </button>
   </form>
-</Fragment>
+</div>
 `;
 
 exports[`AddFolder component renders an error message when the input contains no characters 1`] = `
-<Fragment>
+<div>
   <form
+    className="add-folder-form"
     onSubmit={[Function]}
   >
     <label
@@ -66,28 +89,38 @@ exports[`AddFolder component renders an error message when the input contains no
       Enter a name for a new folder:
     </label>
     <input
+      aria-describedby="aria-description"
+      aria-invalid={true}
+      aria-required="true"
       id="folder-name"
       name="folder-name"
       onChange={[Function]}
       required={true}
       type="text"
     />
+    <span
+      id="aria-description"
+    >
+      You must enter a name for your folder.
+    </span>
     <ValidationError
       message="Name is required and must contain at least one character."
     />
     <button
+      className="add-folder-button"
       disabled={true}
       type="submit"
     >
       Create Folder
     </button>
   </form>
-</Fragment>
+</div>
 `;
 
 exports[`AddFolder component renders the UI as expected 1`] = `
-<Fragment>
+<div>
   <form
+    className="add-folder-form"
     onSubmit={[Function]}
   >
     <label
@@ -96,18 +129,27 @@ exports[`AddFolder component renders the UI as expected 1`] = `
       Enter a name for a new folder:
     </label>
     <input
+      aria-describedby="aria-description"
+      aria-invalid={true}
+      aria-required="true"
       id="folder-name"
       name="folder-name"
       onChange={[Function]}
       required={true}
       type="text"
     />
+    <span
+      id="aria-description"
+    >
+      You must enter a name for your folder.
+    </span>
     <button
+      className="add-folder-button"
       disabled={true}
       type="submit"
     >
       Create Folder
     </button>
   </form>
-</Fragment>
+</div>
 `;
