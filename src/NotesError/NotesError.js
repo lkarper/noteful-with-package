@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 class NotesError extends Component {
-    state ={
+    state = {
         hasError: false,
     };
 
