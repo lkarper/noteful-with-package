@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import ShortNote from '../ShortNote/ShortNote';
@@ -7,6 +7,8 @@ import config from '../config';
 import './Folder.css';
 
 const Folder = (props) => {
+
+    const [deleteFail, setDeleteFail] = useState(false);
 
     const deleteFolder = (id, cb) => {
         fetch(`${config.API_URL}/folders/${id}`, {
@@ -31,6 +33,7 @@ const Folder = (props) => {
         })
         .catch(error => {
             console.log(error);
+            setDeleteFail(true);
         });
     }
     return (
@@ -70,6 +73,7 @@ const Folder = (props) => {
                             Change Folder Name
                         </Link>
                         <button className="delete-folder-button" onClick={() => deleteFolder(parseInt(props.match.params.folderId), value.deleteFolder)}>Delete Folder</button>
+                        {deleteFail ? <p>Error: failed to delete folder.  Check your connection and try again.</p> : ''}
                     </section>
                 );
             }}
