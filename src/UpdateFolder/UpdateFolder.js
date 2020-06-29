@@ -24,6 +24,18 @@ class UpdateFolder extends Component {
         error: null,
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if (!prevState.folder.name && this.context.folders.length && !this.state.folder.touched) {
+            const folderName = this.context.folders.find(f => f.id === parseInt(this.props.match.params.folderId)).name;
+            this.setState({
+                folder: {
+                    name: folderName,
+                    touched: true,
+                },
+            });
+        }
+    }
+
     componentDidMount() {
         if (this.context.folders.length) {
             const folderName = this.context.folders.find(f => f.id === parseInt(this.props.match.params.folderId)).name;
@@ -31,33 +43,34 @@ class UpdateFolder extends Component {
                 folder: {
                     name: folderName,
                     touched: true,
-                }
-            })
-        } else {
-            fetch(`${config.API_URL}/folders/${this.props.match.params.folderId}`, {
-                headers: {
-                  'Authorization': `Bearer ${config.API_KEY}`
-                }
-            })
-                .then(response => {
-                    if (response.ok) {
-                        return response.json();
-                    }
-                    throw new Error(response.message);
-                })
-                .then(folder => {
-                    this.setState({
-                        folder: {
-                            name: folder.name,
-                            touched: true,
-                        }
-                    });
-                })
-                .catch(error => {
-                  console.log(error);
-                  this.setState({ error: error.message });
-                });
-        }
+                },
+            });
+        } 
+        // else {
+        //     fetch(`${config.API_URL}/folders/${this.props.match.params.folderId}`, {
+        //         headers: {
+        //           'Authorization': `Bearer ${config.API_KEY}`
+        //         }
+        //     })
+        //         .then(response => {
+        //             if (response.ok) {
+        //                 return response.json();
+        //             }
+        //             throw new Error(response.message);
+        //         })
+        //         .then(folder => {
+        //             this.setState({
+        //                 folder: {
+        //                     name: folder.name,
+        //                     touched: true,
+        //                 }
+        //             });
+        //         })
+        //         .catch(error => {
+        //           console.log(error);
+        //           this.setState({ error: error.message });
+        //         });
+        // }
     }
 
     handleUpdate = (event) => {
@@ -118,11 +131,22 @@ class UpdateFolder extends Component {
         );
         const nameError = this.validateFolderName();
 
+        const oldName = this.context.folders.find(f => f.id === parseInt(this.props.match.params.folderId)) ? 
+            this.context.folders.find(f => f.id === parseInt(this.props.match.params.folderId)).name 
+            : null ;
+
         return (
             <div>
-                {!this.state.folder.name && !error ? <h2>Loadig...</h2> : 
+                {(!this.context.folders.length && !this.context.folderError) && <h2>Loading...</h2>}
+                {this.context.folderError &&
+                    <div className="folder-load-error">
+                        <h2>Sorry, could not load folders from the server: {error}</h2>
+                        <p>Check your network connection and reload the page.</p>
+                    </div>  
+                }
+                {!!this.context.folders.length &&
                     <form onSubmit={e => this.handleUpdate(e)}>
-                        <label htmlFor="folder-name">Enter a name for a new folder:</label>
+                        <label htmlFor="folder-name">{`Enter a new name for the folder "${oldName}":`}</label>
                         <input 
                             type="text" 
                             id="folder-name" 
