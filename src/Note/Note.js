@@ -33,10 +33,11 @@ class Note extends Component {
             },
         })
         .then(response => {
-            if (response.ok) {
-                return response.json();
+            if (!response.ok) {
+                return response.json().then(error => {
+                    throw error;
+                })
             }
-            throw new Error(response.message);
         })
         .then(data => {
             this.props.history.push('/');
@@ -113,9 +114,9 @@ class Note extends Component {
 
         return (
             <section className="notes">
-                {this.state.error ?
+                {this.state.error || this.context.noteError ?
                     <> 
-                        <h2>Error: {this.state.error}</h2>
+                        <h2>Error: {this.state.error || this.context.noteError}</h2>
                         <p>Check your connection and reload the page.</p>
                     </>
                     : <h2>Loading...</h2>
