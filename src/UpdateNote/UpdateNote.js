@@ -35,74 +35,56 @@ class UpdateNote extends Component {
     componentDidUpdate(prevProps, prevState) {
         if (!prevState.name.value && this.context.notes.length && !this.state.name.touched) {
             const note = this.context.notes.find(n => n.id === parseInt(this.props.match.params.noteId));
-            this.setState({
-                name: {
-                    value: note.name,
-                    touched: true,
-                },
-                folderId: {
-                    value: note.folder,
-                    touched: true,
-                },
-                content: {
-                    value: note.content,
-                    touched: true,
-                },
-            })
+            if (note) {
+                this.setState({
+                    name: {
+                        value: note.name,
+                        touched: true,
+                    },
+                    folderId: {
+                        value: note.folder,
+                        touched: true,
+                    },
+                    content: {
+                        value: note.content,
+                        touched: true,
+                    },
+                    error: null,
+                });
+            } else {
+                this.setState({
+                    error: 'Could not find note by id.  Check the URL for typos and try again.'
+                });
+            }
         }
     }
 
     componentDidMount() {
         if (this.context.notes.length) {
             const note = this.context.notes.find(n => n.id === parseInt(this.props.match.params.noteId));
-            this.setState({
-                name: {
-                    value: note.name,
-                    touched: true,
-                },
-                folderId: {
-                    value: note.folder,
-                    touched: true,
-                },
-                content: {
-                    value: note.content,
-                    touched: true,
-                },
-            })
+            if (note) {
+                this.setState({
+                    name: {
+                        value: note.name,
+                        touched: true,
+                    },
+                    folderId: {
+                        value: note.folder,
+                        touched: true,
+                    },
+                    content: {
+                        value: note.content,
+                        touched: true,
+                    },
+                    error: null,
+                });
+            } else {
+                this.setState({
+                    error: 'Could not find note by id.  Check the URL for typos and try again.'
+                });
+            }
         } 
-        // else {
-        //     fetch(`${config.API_URL}/notes/${this.props.match.params.noteId}`, {
-        //         headers: {
-        //             'Authorization': `Bearer ${config.API_KEY}`
-        //         },
-        //     })
-        //     .then(response => {
-        //         if (response.ok) {
-        //             return response.json();
-        //         }
-        //         throw new Error(response.message);
-        //     })
-        //     .then(note => {
-        //         this.setState({
-        //             name: {
-        //                 value: note.name,
-        //                 touched: true,
-        //             },
-        //             folderId: {
-        //                 value: note.folder,
-        //                 touched: true,
-        //             },
-        //             content: {
-        //                 value: note.context,
-        //                 touched: true,
-        //             },
-        //         })
-        //     })
-        //     .catch(error => {
-        //         console.log(error);
-        //         this.setState({ error: error.message });
-        //     });
-        // }
+        
     }
 
     updateName = (name) => {
@@ -164,7 +146,7 @@ class UpdateNote extends Component {
             .catch(error => {
                 console.log('error', error);
                 this.setState({ error: error.message });
-            })
+            });
     }
 
     validateNoteName = () => {
@@ -211,7 +193,7 @@ class UpdateNote extends Component {
         const errorHTML = (
             <div className="folder-error">
                 <h2>Looks like something went wrong: {error}.</h2>
-                <p>A new note could not be created.  Please try again later.</p>
+                <p>Check your connection and try again.</p>
             </div>
         );
 
@@ -220,7 +202,7 @@ class UpdateNote extends Component {
                 {(!this.context.notes.length && !this.context.noteError) && <h2>Loading...</h2>}
                 {this.context.noteError && 
                     <div className="note-load-error">
-                        <h2>Sorry, could not load notes from the server: {error}</h2>
+                        <h2>Sorry, could not load notes from the server: {this.context.noteError}</h2>
                         <p>Check your network connection and reload the page.</p>
                     </div>
                 }  

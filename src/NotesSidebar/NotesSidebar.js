@@ -16,7 +16,9 @@ const NotesSidebar = (props) => {
                     </div>
                 );
                 let folderIdToMatch;
-                if (value.notes.length) { 
+                const noteInContext = value.notes
+                    .find(note => note.id === parseInt(props.match.params.noteId));
+                if (value.notes.length && noteInContext) { 
                     folderIdToMatch = value.notes
                         .find(note => note.id === parseInt(props.match.params.noteId))
                         .folder;
@@ -47,8 +49,8 @@ const NotesSidebar = (props) => {
                 }
                 return (
                     <nav className="sidebar">
-                        <h2>Sorry, could not load folders.</h2>
-                        <p>Check your network connection and reload the page.</p>
+                        <h2>Sorry, could not load your folder.</h2>
+                        <p>Check your query for errors, check your network connection and reload the page.</p>
                     </nav>
                 );
             }}

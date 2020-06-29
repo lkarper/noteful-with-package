@@ -7,6 +7,7 @@ import config from '../config';
 class Note extends Component {
 
     state = {
+        note: {},
         error: null,
     }
 
@@ -47,6 +48,38 @@ class Note extends Component {
         });
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if (!Object.keys(prevState.note).length && this.context.notes.length && !prevState.error) {
+            const note = this.context.notes.find(n => n.id === parseInt(this.props.match.params.noteId));
+            if (note) {
+                this.setState({
+                    note,
+                    error: null,
+                });
+            } else {
+                this.setState({
+                    error: 'Could not find note by id.  Check the URL for typos and try again.'
+                })
+            }
+        } 
+    }
+
+    componentDidMount() {
+        if (this.context.notes.length) {
+            const note = this.context.notes.find(n => n.id === parseInt(this.props.match.params.noteId));
+            if (note) {
+                this.setState({
+                    note,
+                    error: null,
+                });
+            } else {
+                this.setState({
+                    error: 'Could not find note by id.  Check the URL for typos and try again.'
+                });
+            }
+        }
+    }
+
     render() {
         const error = this.state.error;
         const errorHTML = (
@@ -56,9 +89,9 @@ class Note extends Component {
             </div>
         );
 
-        const note = this.context.notes.find(n => n.id === parseInt(this.props.match.params.noteId));
+        const { note } = this.state;
 
-        if (note) {
+        if (Object.keys(note).length) {
             return (
                 <section className="notes">
                     <h2>{note.name}</h2>
@@ -82,8 +115,8 @@ class Note extends Component {
             <section className="notes">
                 {this.state.error ?
                     <> 
-                        <h2>Error</h2>
-                        <p>Could not load note.  Check your connection and reload the page.</p>
+                        <h2>Error: {this.state.error}</h2>
+                        <p>Check your connection and reload the page.</p>
                     </>
                     : <h2>Loading...</h2>
                 }
