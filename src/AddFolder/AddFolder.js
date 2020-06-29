@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import NotesContext from '../NotesContext/NotesContext';
 import ValidationError from '../ValidationError/ValidationError';
+import config from '../config';
 import './AddFolder.css';
 
 class AddFolder extends Component {
@@ -22,11 +23,12 @@ class AddFolder extends Component {
             name: this.state.folder.name,
         };
 
-        fetch('http://localhost:8000/api/folders', {
+        fetch(`${config.API_URL}/folders`, {
             method: 'POST',
             body: JSON.stringify(newFolder),
             headers: {
                 'content-type': 'application/json',
+                'Authorization': `Bearer ${config.API_KEY}`
             },
         })
             .then(response => {

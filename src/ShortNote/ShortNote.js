@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import NotesContext from '../NotesContext/NotesContext';
+import config from '../config';
 import './ShortNote.css';
 
 class ShortNote extends Component {
@@ -23,10 +24,11 @@ class ShortNote extends Component {
     }
 
     deleteNoteRequest = (noteId, cb) => {
-        fetch(`http://localhost:8000/api/notes/${noteId}`, {
+        fetch(`${config.API_URL}/notes/${noteId}`, {
             method: 'DELETE',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                'Authorization': `Bearer ${config.API_KEY}`
             },
         })
         .then(response => {

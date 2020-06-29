@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import NotesContext from '../NotesContext/NotesContext';
 import ValidationError from '../ValidationError/ValidationError';
+import config from '../config';
 
 class UpdateFolder extends Component {
 
@@ -20,11 +21,12 @@ class UpdateFolder extends Component {
             name: this.state.folder.name,
         }
 
-        fetch(`http://localhost:8000/api/folders/${this.props.match.params.folderId}`, {
+        fetch(`${config.API_URL}/folders/${this.props.match.params.folderId}`, {
             method: 'PATCH',
             body: JSON.stringify(folder),
             headers: {
                 'content-type': 'application/json',
+                'Authorization': `Bearer ${config.API_KEY}`
             }
         })
             .then(res => {

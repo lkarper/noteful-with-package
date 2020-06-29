@@ -4,6 +4,7 @@ import Header from './Header/Header';
 import Sidebar from './Sidebar/Sidebar';
 import Main from './Main/Main';
 import NotesContext from './NotesContext/NotesContext';
+import config from './config';
 import './App.css';
 
 class App extends React.Component {
@@ -60,7 +61,11 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:8000/api/folders')
+    fetch(`${config.API_URL}/folders`, {
+      headers: {
+        'Authorization': `Bearer ${config.API_KEY}`
+      }
+    })
       .then(response => {
         if (response.ok) {
           return response.json();
@@ -78,7 +83,11 @@ class App extends React.Component {
         this.setState({ folderError: error.message });
       });
       
-    fetch('http://localhost:8000/api/notes')
+    fetch(`${config.API_URL}/notes`, {
+      headers: {
+        'Authorization': `Bearer ${config.API_KEY}`
+      }
+    })
       .then(response => {
         if (response.ok) {
           return response.json();

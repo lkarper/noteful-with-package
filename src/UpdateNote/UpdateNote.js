@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import NotesContext from '../NotesContext/NotesContext';
 import ValidationError from '../ValidationError/ValidationError';
+import config from '../config';
 
 class UpdateNote extends Component {
 
@@ -59,11 +60,12 @@ class UpdateNote extends Component {
             date_modified: (new Date()).toJSON(),
         }
 
-        fetch(`http://localhost:8000/api/notes/${this.props.match.params.noteId}`, {
+        fetch(`${config.API_URL}/notes/${this.props.match.params.noteId}`, {
             method: 'PATCH',
             body: JSON.stringify(note),
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                'Authorization': `Bearer ${config.API_KEY}`
             }
         })
             .then(res => {

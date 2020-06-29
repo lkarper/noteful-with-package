@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import NotesContext from '../NotesContext/NotesContext';
 import ValidationError from '../ValidationError/ValidationError';
+import config from '../config';
 import './AddNote.css';
 
 class AddNote extends Component {
@@ -68,11 +69,12 @@ class AddNote extends Component {
             content: this.state.content.value,
         };
 
-        fetch('http://localhost:8000/api/notes', {
+        fetch(`${config.API_URL}/notes`, {
             method: 'POST',
             body: JSON.stringify(newNote),
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                'Authorization': `Bearer ${config.API_KEY}`
             }
         })
             .then(response => {

@@ -3,15 +3,17 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import ShortNote from '../ShortNote/ShortNote';
 import NotesContext from '../NotesContext/NotesContext';
+import config from '../config';
 import './Folder.css';
 
 const Folder = (props) => {
 
     const deleteFolder = (id, cb) => {
-        fetch(`http://localhost:8000/api/folders/${id}`, {
+        fetch(`${config.API_URL}/folders/${id}`, {
             method: 'DELETE',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                'Authorization': `Bearer ${config.API_KEY}`
             },
         })
         .then(res => {
