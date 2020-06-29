@@ -51,6 +51,13 @@ const Folder = (props) => {
                     .map(note =>
                         <ShortNote key={note.id} note={note} />
                     );
+                const error = value.noteError;
+                const errorHTML = (
+                    <li className="notes-load-error">
+                        <h2>Sorry, could not fetch notes from server: {error}.</h2>
+                        <p>Check your connection and reload the page.</p>
+                    </li>
+                );
                 
                 return (
                     <section className="notes">
@@ -65,6 +72,7 @@ const Folder = (props) => {
                             <>
                                 <ul>
                                     {notes}
+                                    {error ? errorHTML : ''}
                                 </ul>
                                 <Link 
                                     className="add-note-button"
