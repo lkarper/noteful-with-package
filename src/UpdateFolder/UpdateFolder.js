@@ -25,52 +25,45 @@ class UpdateFolder extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if (!prevState.folder.name && this.context.folders.length && !this.state.folder.touched) {
-            const folderName = this.context.folders.find(f => f.id === parseInt(this.props.match.params.folderId)).name;
-            this.setState({
-                folder: {
-                    name: folderName,
-                    touched: true,
-                },
-            });
+        if (this.context.folders.length && !prevState.folder.touched && !prevState.error) {
+            const folder = this.context.folders.find(f => f.id === parseInt(this.props.match.params.folderId));
+            if (folder) {
+                this.setState({
+                    folder: {
+                        name: folder.name,
+                        touched: true,
+                    },
+                    error: null,
+                });
+            } else if (this.context.folderError) {
+                this.setState({
+                    error: this.context.folderError,
+                });
+            } else {
+                this.setState({
+                    error: 'Could not load folder by id.  Check the URL for typos and try again.'   
+                });
+            }
         }
     }
 
     componentDidMount() {
         if (this.context.folders.length) {
-            const folderName = this.context.folders.find(f => f.id === parseInt(this.props.match.params.folderId)).name;
-            this.setState({
-                folder: {
-                    name: folderName,
-                    touched: true,
-                },
-            });
-        } 
-        // else {
-        //     fetch(`${config.API_URL}/folders/${this.props.match.params.folderId}`, {
-        //         headers: {
-        //           'Authorization': `Bearer ${config.API_KEY}`
-        //         }
-        //     })
-        //         .then(response => {
-        //             if (response.ok) {
-        //                 return response.json();
-        //             }
-        //             throw new Error(response.message);
-        //         })
-        //         .then(folder => {
-        //             this.setState({
-        //                 folder: {
-        //                     name: folder.name,
-        //                     touched: true,
-        //                 }
-        //             });
-        //         })
-        //         .catch(error => {
-        //           console.log(error);
-        //           this.setState({ error: error.message });
-        //         });
-        // }
+            const folder = this.context.folders.find(f => f.id === parseInt(this.props.match.params.folderId));
+            if (folder) {
+                this.setState({
+                    folder: {
+                        name: folder.name,
+                        touched: true,
+                    },
+                    error: null,
+                });
+            } else {
+                this.setState({
+                    error: 'Could not load folder by id.  Check the URL for typos and try again.'   
+                });
+            }
+        }
     }
 
     handleUpdate = (event) => {
@@ -125,26 +118,20 @@ class UpdateFolder extends Component {
         const { error } = this.state;
         const errorHTML = (
             <div className="folder-error">
-                <h2>Looks like something went wrong: {error}.</h2>
-                <p>A new folder could not be created at this time.  Please try again later.</p>
+                <h2>Looks like something went wrong: {error}</h2>
+                <p>Folder could not be updated at this time.  Please try again later.</p>
             </div>
         );
         const nameError = this.validateFolderName();
 
         const oldName = this.context.folders.find(f => f.id === parseInt(this.props.match.params.folderId)) ? 
             this.context.folders.find(f => f.id === parseInt(this.props.match.params.folderId)).name 
-            : null ;
+            : null;
 
         return (
             <div>
                 {(!this.context.folders.length && !this.context.folderError) && <h2>Loading...</h2>}
-                {this.context.folderError &&
-                    <div className="folder-load-error">
-                        <h2>Sorry, could not load folders from the server: {error}</h2>
-                        <p>Check your network connection and reload the page.</p>
-                    </div>  
-                }
-                {!!this.context.folders.length &&
+                {(!!this.context.folders.length && !error) &&
                     <form onSubmit={e => this.handleUpdate(e)}>
                         <label htmlFor="folder-name">{`Enter a new name for the folder "${oldName}":`}</label>
                         <input 

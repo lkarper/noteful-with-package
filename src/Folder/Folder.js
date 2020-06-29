@@ -29,6 +29,7 @@ const Folder = (props) => {
           })
         .then(data => {
             props.history.push('/');
+            setDeleteFail(false);
             cb(id);
         })
         .catch(error => {
@@ -36,6 +37,12 @@ const Folder = (props) => {
             setDeleteFail(true);
         });
     }
+
+    const verifyFolderId = (folders) => {
+        const { folderId } = props.match.params;
+        return folders.findIndex(f => f.id === parseInt(folderId)) !== -1;
+    }
+
     return (
         <NotesContext.Consumer>
             {value => {
@@ -47,7 +54,14 @@ const Folder = (props) => {
                 
                 return (
                     <section className="notes">
-                        {!value.notes.length ? <p>Loading...</p> :
+                        {(!value.notes.length && !value.folderError) && <p>Loading...</p>}
+                        {(!!value.notes.length && !verifyFolderId(value.folders)) && 
+                            <div>
+                                <h2>Error</h2>
+                                <p>Could not find folder by id.  Check the URL for typos and try again.</p>
+                            </div>
+                        }
+                        {(!!value.notes.length && verifyFolderId(value.folders)) &&
                             <>
                                 <ul>
                                     {notes}
