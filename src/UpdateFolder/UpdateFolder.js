@@ -9,11 +9,6 @@ class UpdateFolder extends Component {
     static contextType = NotesContext;
 
     static defaultProps = {
-        location: {
-            state: {
-                name: '',
-            }
-        },
         match: {
             params: {
                 folderId: '',
@@ -23,10 +18,46 @@ class UpdateFolder extends Component {
 
     state = {
         folder: {
-            name: this.props.location.state.name,
-            touched: true,
+            name: '',
+            touched: false,
         },
         error: null,
+    }
+
+    componentDidMount() {
+        if (this.context.folders.length) {
+            const folderName = this.context.folders.find(f => f.id === parseInt(this.props.match.params.folderId)).name;
+            this.setState({
+                folder: {
+                    name: folderName,
+                    touched: true,
+                }
+            })
+        } else {
+            fetch(`${config.API_URL}/folders/${this.props.match.params.folderId}`, {
+                headers: {
+                  'Authorization': `Bearer ${config.API_KEY}`
+                }
+            })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    throw new Error(response.message);
+                })
+                .then(folder => {
+                    this.setState({
+                        folder: {
+                            name: folder.name,
+                            touched: true,
+                        }
+                    });
+                })
+                .catch(error => {
+                  console.log(error);
+                  this.setState({ error: error.message });
+                });
+        }
     }
 
     handleUpdate = (event) => {
@@ -55,6 +86,9 @@ class UpdateFolder extends Component {
             })
             .catch(error => {
                 console.log('error', error);
+                this.setState({
+                    error: error.message
+                });
             })
     }
 
@@ -86,24 +120,26 @@ class UpdateFolder extends Component {
 
         return (
             <div>
-                <form onSubmit={e => this.handleUpdate(e)}>
-                    <label htmlFor="folder-name">Enter a name for a new folder:</label>
-                    <input 
-                        type="text" 
-                        id="folder-name" 
-                        name="folder-name" 
-                        onChange={e => this.updateFolderName(e.currentTarget.value)} 
-                        value={this.state.folder.name}
-                        required 
-                    />
-                    {this.state.folder.touched && <ValidationError message={nameError} />}
-                    <button 
-                        type="submit"
-                        disabled={nameError ? true : false}
-                    >
-                        Update Folder
-                    </button>
-                </form>
+                {!this.state.folder.name && !error ? <h2>Loadig...</h2> : 
+                    <form onSubmit={e => this.handleUpdate(e)}>
+                        <label htmlFor="folder-name">Enter a name for a new folder:</label>
+                        <input 
+                            type="text" 
+                            id="folder-name" 
+                            name="folder-name" 
+                            onChange={e => this.updateFolderName(e.currentTarget.value)} 
+                            value={this.state.folder.name}
+                            required 
+                        />
+                        {this.state.folder.touched && <ValidationError message={nameError} />}
+                        <button 
+                            type="submit"
+                            disabled={nameError ? true : false}
+                        >
+                            Update Folder
+                        </button>
+                    </form>
+                }
                 {error ?  errorHTML : ''}
             </div>
         );
@@ -111,11 +147,6 @@ class UpdateFolder extends Component {
 }
 
 UpdateFolder.propTypes = {
-    location: PropTypes.shape({
-        state: PropTypes.shape({
-            name: PropTypes.string.isRequired,
-        }).isRequired,
-    }).isRequired,
     match: PropTypes.object.isRequired,
 }
 

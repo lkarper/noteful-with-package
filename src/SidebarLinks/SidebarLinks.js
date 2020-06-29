@@ -7,6 +7,7 @@ const SidebarLinks = () => {
     return (
         <NotesContext.Consumer>
             {value => {
+                const loading = value.folders.length ? false : true;
                 const error = value.folderError;
                 const errorHTML = (
                     <div className="folder-load-error">
@@ -28,6 +29,7 @@ const SidebarLinks = () => {
 
                 return (
                     <nav className="sidebar">
+                        {loading && !error ? <p>Loading...</p> : ''}
                         {links}
                         {error ? errorHTML : ''}
                         <NavLink

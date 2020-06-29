@@ -9,13 +9,6 @@ class UpdateNote extends Component {
     static contextType = NotesContext;
 
     static defaultProps = {
-        location: {
-            state: {
-                name: '',
-                folder: '',
-                content: '',
-            }
-        },
         match: {
             params: {
                 noteId: '',
@@ -25,18 +18,70 @@ class UpdateNote extends Component {
 
     state = {
         name: {
-            value: this.props.location.state.name,
-            touched: true,
+            value: '',
+            touched: false,
         },
         folderId: {
-            value: parseInt(this.props.location.state.folder),
-            touched: true,
+            value: '',
+            touched: false,
         },
         content: {
-            value: this.props.location.state.content,
-            touched: true,
+            value: '',
+            touched: false,
         },
         error: null,
+    }
+
+    componentDidMount() {
+        if (this.context.notes.length) {
+            const note = this.context.notes.find(n => n.id === parseInt(this.props.match.params.noteId));
+            this.setState({
+                name: {
+                    value: note.name,
+                    touched: true,
+                },
+                folderId: {
+                    value: note.folder,
+                    touched: true,
+                },
+                content: {
+                    value: note.context,
+                    touched: true,
+                },
+            })
+        } else {
+            fetch(`${config.API_URL}/notes/${noteId}`, {
+                headers: {
+                    'Authorization': `Bearer ${config.API_KEY}`
+                },
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                }
+                throw new Error(response.message);
+            })
+            .then(note => {
+                this.setState({
+                    name: {
+                        value: note.name,
+                        touched: true,
+                    },
+                    folderId: {
+                        value: note.folder,
+                        touched: true,
+                    },
+                    content: {
+                        value: note.context,
+                        touched: true,
+                    },
+                })
+            })
+            .catch(error => {
+                console.log(error);
+                this.setState({ error: error.message });
+            });
+        }
     }
 
     updateName = (name) => {
@@ -97,6 +142,7 @@ class UpdateNote extends Component {
             })
             .catch(error => {
                 console.log('error', error);
+                this.setState({ error: error.message });
             })
     }
 
@@ -150,46 +196,48 @@ class UpdateNote extends Component {
 
         return (
             <div className="add-note-container">
-                <form 
-                    className="add-note-form"
-                    onSubmit={e => this.handleUpdate(e)}
+                {!this.state.name.value && !error ? <h2>Loading...</h2> : 
+                    <form 
+                        className="add-note-form"
+                        onSubmit={e => this.handleUpdate(e)}
                     >
-                    <label htmlFor="add-note">Enter name for a new note: </label>
-                    <input 
-                        type="text" 
-                        id="add-note" 
-                        name="add-note" 
-                        className="note-name"
-                        value={this.state.name.value} 
-                        onChange={e => this.updateName(e.currentTarget.value)} 
-                        required 
-                    />
-                    {this.state.name.touched && <ValidationError message={nameError} />}
-                    <fieldset>
-                        <legend>Select a folder to put the new note in: </legend>
-                        {folderRadios}
-                    </fieldset>
-                    {<ValidationError message={folderError} />}
-                    <label htmlFor="content">Enter note content here:</label>
-                    <textarea 
-                        id="content" 
-                        name="content" 
-                        rows="5" 
-                        cols="75" 
-                        className="note-content"
-                        onChange={e => this.updateContent(e.currentTarget.value)} 
-                        placeholder="Type your note here..." 
-                        value={this.state.content.value}
-                        required>
-                    </textarea>
-                    {this.state.content.touched && <ValidationError message={contentError} />}
-                    <button 
-                        type="submit"
-                        disabled={nameError || folderError || contentError ? true : false}
-                        >
-                            Update Note
-                    </button> 
-                </form>
+                        <label htmlFor="add-note">Enter name for a new note: </label>
+                        <input 
+                            type="text" 
+                            id="add-note" 
+                            name="add-note" 
+                            className="note-name"
+                            value={this.state.name.value} 
+                            onChange={e => this.updateName(e.currentTarget.value)} 
+                            required 
+                        />
+                        {this.state.name.touched && <ValidationError message={nameError} />}
+                        <fieldset>
+                            <legend>Select a folder to put the new note in: </legend>
+                            {folderRadios}
+                        </fieldset>
+                        {<ValidationError message={folderError} />}
+                        <label htmlFor="content">Enter note content here:</label>
+                        <textarea 
+                            id="content" 
+                            name="content" 
+                            rows="5" 
+                            cols="75" 
+                            className="note-content"
+                            onChange={e => this.updateContent(e.currentTarget.value)} 
+                            placeholder="Type your note here..." 
+                            value={this.state.content.value}
+                            required>
+                        </textarea>
+                        {this.state.content.touched && <ValidationError message={contentError} />}
+                        <button 
+                            type="submit"
+                            disabled={nameError || folderError || contentError ? true : false}
+                            >
+                                Update Note
+                        </button> 
+                    </form>
+                }
                 {error ?  errorHTML : ''}
             </div>
         );

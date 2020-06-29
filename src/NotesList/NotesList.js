@@ -21,21 +21,25 @@ const NotesList = () => {
 
                 return (
                     <section className="notes">
-                        <ul>
-                            {notes}
-                            {error ? errorHTML : ''}
-                        </ul>
-                        <Link 
-                            className="add-note-button"
-                            to={{
-                                pathname: "/add-note",
-                                state: {
-                                    folderId: null,
-                                },
-                            }}
-                        >
-                            Add note
-                        </Link>
+                        {!error && !value.notes.length ? <h2>Loading...</h2> :
+                            <>
+                                <ul>
+                                    {notes}
+                                    {error ? errorHTML : ''}
+                                </ul>
+                                <Link 
+                                    className="add-note-button"
+                                    to={{
+                                        pathname: "/add-note",
+                                        state: {
+                                            folderId: null,
+                                        },
+                                    }}
+                                >
+                                    Add note
+                                </Link>
+                            </>
+                        }
                     </section>
                 );
             }}

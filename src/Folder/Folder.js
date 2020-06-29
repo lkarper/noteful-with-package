@@ -47,32 +47,36 @@ const Folder = (props) => {
                 
                 return (
                     <section className="notes">
-                        <ul>
-                            {notes}
-                        </ul>
-                        <Link 
-                            className="add-note-button"
-                            to={{
-                                pathname: "/add-note",
-                                state: {
-                                    folderId: props.match.params.folderId,
-                                },
-                            }}
-                        >
-                            Add note
-                        </Link>
-                        <Link 
-                            className="add-note-button"
-                            to={{
-                                pathname: `/update-folder/${props.match.params.folderId}`,
-                                state: {
-                                    name: `${value.folders.length ? value.folders.find(f => f.id === parseInt(props.match.params.folderId)).name : null}`,
-                                },
-                            }}
-                        >
-                            Change Folder Name
-                        </Link>
-                        <button className="delete-folder-button" onClick={() => deleteFolder(parseInt(props.match.params.folderId), value.deleteFolder)}>Delete Folder</button>
+                        {!notes.length ? <p>Loading...</p> :
+                            <>
+                                <ul>
+                                    {notes}
+                                </ul>
+                                <Link 
+                                    className="add-note-button"
+                                    to={{
+                                        pathname: "/add-note",
+                                        state: {
+                                            folderId: props.match.params.folderId,
+                                        },
+                                    }}
+                                >
+                                    Add note
+                                </Link>
+                                <Link 
+                                    className="add-note-button"
+                                    to={{
+                                        pathname: `/update-folder/${props.match.params.folderId}`,
+                                        state: {
+                                            name: `${value.folders.length ? value.folders.find(f => f.id === parseInt(props.match.params.folderId)).name : null}`,
+                                        },
+                                    }}
+                                >
+                                    Change Folder Name
+                                </Link>
+                                <button className="delete-folder-button" onClick={() => deleteFolder(parseInt(props.match.params.folderId), value.deleteFolder)}>Delete Folder</button>
+                            </>
+                        }
                         {deleteFail ? <p>Error: failed to delete folder.  Check your connection and try again.</p> : ''}
                     </section>
                 );

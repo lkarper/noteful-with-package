@@ -6,11 +6,12 @@ import Note from '../Note/Note';
 import AddFolder from '../AddFolder/AddFolder';
 import AddNote from '../AddNote/AddNote';
 import UpdateNote from '../UpdateNote/UpdateNote';
+import UpdateFolder from '../UpdateFolder/UpdateFolder';
 import NotesError from '../NotesError/NotesError';
 import AddFolderError from '../AddFolderError/AddFolderError';
 import AddNoteError from '../AddNoteError/AddNoteError';
 import './Main.css';
-import UpdateFolder from '../UpdateFolder/UpdateFolder';
+
 
 const Main = () => {
     return (

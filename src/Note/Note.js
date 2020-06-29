@@ -67,7 +67,6 @@ class Note extends Component {
                     <Link
                         to={{
                             pathname: `/update-note/${this.props.match.params.noteId}`,
-                            state: {...note},
                         }}
                     >Edit Note</Link>
                     {error ? errorHTML : ''}
@@ -78,8 +77,13 @@ class Note extends Component {
 
         return (
             <section className="notes">
-                <h2>Error</h2>
-                <p>Could not load note.  Check your connection and reload the page.</p>
+                {this.state.error ?
+                    <> 
+                        <h2>Error</h2>
+                        <p>Could not load note.  Check your connection and reload the page.</p>
+                    </>
+                    : <h2>Loading...</h2>
+                }
             </section>
         );
     }
