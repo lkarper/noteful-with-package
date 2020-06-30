@@ -116,6 +116,14 @@ class AddNote extends Component {
         }
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if (!prevState.error && this.context.folderError) {
+            this.setState({
+                error: this.context.folderError,
+            });
+        }
+    }
+
     componentDidMount() {
         if (this.props.location.state) {
             this.setState({
@@ -125,6 +133,12 @@ class AddNote extends Component {
                 },
             })
         }
+        if (this.context.folderError) {
+            this.setState({
+                error: this.context.folderError,
+            });
+        }
+
     }
 
     render() {
