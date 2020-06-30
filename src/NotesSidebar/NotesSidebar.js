@@ -9,12 +9,6 @@ const NotesSidebar = (props) => {
             {value => {
                 const loading = value.notes.length ? false : true;
                 const error = value.folderError;
-                const errorHTML = (
-                    <div className="folder-load-error">
-                        <h2>Sorry, could not load folders from the server: {error}.</h2>
-                        <p>Check your network connection and reload the page.</p>
-                    </div>
-                );
                 let folderIdToMatch;
                 const noteInContext = value.notes
                     .find(note => note.id === parseInt(props.match.params.noteId));
@@ -29,7 +23,6 @@ const NotesSidebar = (props) => {
                 if (folder) {
                     return (
                         <nav className="sidebar">
-                            {error ? errorHTML : ''}
                             <NavLink
                                 className="folder-link"
                                 activeClassName="highlighted"
