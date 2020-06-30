@@ -130,7 +130,7 @@ class UpdateFolder extends Component {
         return (
             <div>
                 {(!this.context.folders.length && !this.context.folderError && !error) && <h2>Loading...</h2>}
-                {(!!this.context.folders.length && !this.context.folderError) &&
+                {(!!this.context.folders.length && this.state.folder.touched) &&
                     <form 
                         className="add-folder-form"
                         onSubmit={e => this.handleUpdate(e)}
