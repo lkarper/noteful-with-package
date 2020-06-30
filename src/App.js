@@ -111,7 +111,7 @@ class App extends React.Component {
         const nameA = a.name.toLowerCase();
         const nameB = b.name.toLowerCase();
         if (nameA < nameB) {
-          return -1
+          return -1;
         } else if (nameA > nameB) {
           return 1;
         }
