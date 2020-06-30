@@ -15,11 +15,11 @@ class ShortNote extends Component {
 
     static defaultProps = {
         note: {
-            name: "Placeholder name",
+            name: '',
             id: 0, 
             date_modified: (new Date()).toJSON(), 
             folder: 0, 
-            content: "Lorem ipsum...",
+            content: '',
         },
     }
 
@@ -35,7 +35,7 @@ class ShortNote extends Component {
             if (!response.ok) {
                 return response.json().then(error => {
                     throw error;
-                })
+                });
             }
         })
         .then(data => {
