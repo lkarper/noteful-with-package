@@ -36,12 +36,12 @@ class Note extends Component {
             if (!response.ok) {
                 return response.json().then(error => {
                     throw error;
-                })
+                });
             }
         })
         .then(data => {
-            this.props.history.push('/');
             cb(noteId);
+            this.props.history.push('/');
         })
         .catch(error => {
             console.log(error);
