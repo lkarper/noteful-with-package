@@ -24,7 +24,7 @@ const Folder = (props) => {
               return res.json().then(error => {
                 // then throw it
                 throw error
-              })
+              });
             }
           })
         .then(data => {
