@@ -214,7 +214,7 @@ class UpdateNote extends Component {
                         className="add-note-form"
                         onSubmit={e => this.handleUpdate(e)}
                     >
-                        <label htmlFor="add-note">Enter name for a new note: </label>
+                        <label htmlFor="add-note">Enter a name for your note: </label>
                         <input 
                             type="text" 
                             id="add-note" 
@@ -232,7 +232,7 @@ class UpdateNote extends Component {
                         </div>
                         {this.state.name.touched && <ValidationError message={nameError} />}
                         <fieldset>
-                            <legend>Select a folder to put the new note in: </legend>
+                            <legend>Select a folder to put the note in: </legend>
                             {folderRadios}
                         </fieldset>
                         <div id="folder-aria-required">
