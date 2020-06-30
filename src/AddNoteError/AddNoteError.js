@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 
 class AddNoteError extends Component {
-    state ={
+    state = {
         hasError: false,
     }
 
