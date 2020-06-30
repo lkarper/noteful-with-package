@@ -12,7 +12,7 @@ class UpdateFolder extends Component {
         match: {
             params: {
                 folderId: '',
-            }
+            },
         },
     }
 
@@ -84,16 +84,16 @@ class UpdateFolder extends Component {
                 if (!res.ok) {
                     return res.json().then(error => {
                         throw error;
-                    })
+                    });
                 }
             })
             .then(data => {
-                this.context.updateFolders({...folder, id: parseInt(this.props.match.params.folderId)});
+                this.context.updateFolders({ ...folder, id: parseInt(this.props.match.params.folderId) });
             })
             .catch(error => {
                 console.log('error', error);
                 this.setState({
-                    error: error.message
+                    error: error.message,
                 });
             })
     }
@@ -124,14 +124,13 @@ class UpdateFolder extends Component {
         );
         const nameError = this.validateFolderName();
 
-        const oldName = this.context.folders.find(f => f.id === parseInt(this.props.match.params.folderId)) ? 
-            this.context.folders.find(f => f.id === parseInt(this.props.match.params.folderId)).name 
-            : null;
+        const folder = this.context.folders.find(f => f.id === parseInt(this.props.match.params.folderId));
+        const oldName = folder ? folder.name : null;
 
         return (
             <div>
                 {(!this.context.folders.length && !this.context.folderError && !error) && <h2>Loading...</h2>}
-                {(!!this.context.folders.length && !error) &&
+                {(!!this.context.folders.length && !this.context.folderError) &&
                     <form 
                         className="add-folder-form"
                         onSubmit={e => this.handleUpdate(e)}

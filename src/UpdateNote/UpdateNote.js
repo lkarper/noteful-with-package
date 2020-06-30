@@ -12,7 +12,7 @@ class UpdateNote extends Component {
         match: {
             params: {
                 noteId: '',
-            }
+            },
         },
     }
 
@@ -33,7 +33,7 @@ class UpdateNote extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if (!prevState.name.value && this.context.notes.length && !this.state.name.touched) {
+        if (this.context.notes.length && !prevState.name.touched && !prevState.error) {
             const note = this.context.notes.find(n => n.id === parseInt(this.props.match.params.noteId));
             if (note) {
                 this.setState({
@@ -170,6 +170,11 @@ class UpdateNote extends Component {
     }
 
     render() {
+
+        const nameError = this.validateNoteName();
+        const folderError = this.validateFolderChoice();
+        const contentError = this.validateContent();
+
         const folderRadios = this.context.folders.map(folder => 
                 <div key={folder.id}>
                     <input 
@@ -187,14 +192,10 @@ class UpdateNote extends Component {
                 </div>
             );
 
-        const nameError = this.validateNoteName();
-        const folderError = this.validateFolderChoice();
-        const contentError = this.validateContent();
-
         const { error } = this.state;
         const errorHTML = (
             <div className="folder-error">
-                <h2>Looks like something went wrong: {error}.</h2>
+                <h2>Looks like something went wrong: {error}</h2>
                 <p>Check your connection and try again.</p>
             </div>
         );
@@ -208,7 +209,7 @@ class UpdateNote extends Component {
                         <p>Check your network connection and reload the page.</p>
                     </div>
                 }  
-                {!!this.context.notes.length && 
+                {(!!this.context.notes.length && this.state.name.touched) &&
                     <form 
                         className="add-note-form"
                         onSubmit={e => this.handleUpdate(e)}
