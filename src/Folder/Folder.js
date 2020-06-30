@@ -88,7 +88,7 @@ const Folder = (props) => {
                                 <Link 
                                     className="add-note-button"
                                     to={{
-                                        pathname: `/update-folder/${props.match.params.folderId}`,
+                                        pathname: `/folder/${props.match.params.folderId}/update-folder`,
                                         state: {
                                             name: `${value.folders.length ? value.folders.find(f => f.id === parseInt(props.match.params.folderId)).name : null}`,
                                         },

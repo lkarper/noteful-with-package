@@ -51,7 +51,7 @@ const Main = () => {
                     )}
                 />
                 <Route 
-                    exact path="/update-folder/:folderId"
+                    exact path="/folder/:folderId/update-folder"
                     render={rProps => (
                         <AddFolderError>
                             <UpdateFolder {...rProps} />
@@ -67,7 +67,7 @@ const Main = () => {
                     )}
                 />
                 <Route 
-                    exact path="/update-note/:noteId"
+                    exact path="/note/:noteId/update-note"
                     render={rProps => (
                         <AddNoteError>
                             <UpdateNote {...rProps} />

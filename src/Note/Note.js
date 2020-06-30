@@ -103,7 +103,7 @@ class Note extends Component {
                     >Delete Note</button>
                     <Link
                         to={{
-                            pathname: `/update-note/${this.props.match.params.noteId}`,
+                            pathname: `/note/${this.props.match.params.noteId}/update-note`,
                         }}
                     >Edit Note</Link>
                     {error ? errorHTML : ''}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import SidebarLinks from '../SidebarLinks/SidebarLinks';
 import NotesSidebar from '../NotesSidebar/NotesSidebar';
 import SidebarError from '../SidebarError/SidebarError';
@@ -9,14 +9,16 @@ const Sidebar = () => {
     
     return (
         <SidebarError>
-            <Route 
-                exact path={["/", "/folder/:folderId", "/add-folder", "/add-note", "/update-folder/:folderId"]}
-                component={SidebarLinks}
-            />
-            <Route 
-                path={["/note/:noteId", "/update-note/:noteId"]}
-                component={NotesSidebar}
-            />    
+            <Switch>
+                <Route 
+                    exact path={["/note/:noteId", "/note/:noteId/update-note"]}
+                    component={NotesSidebar}
+                />    
+                <Route
+                    path={["/", "/folder/:folderId", "/add-folder", "/add-note", "/folder/:folderId/update-folder"]}
+                    component={SidebarLinks}
+                />
+                </Switch>
         </SidebarError>
     );
 }
